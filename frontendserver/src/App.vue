@@ -2,7 +2,6 @@
   <v-app class="theme">
     <v-content class="colored">
       <Template/>
-        <router-view/>
     </v-content>
   </v-app>
 </template>

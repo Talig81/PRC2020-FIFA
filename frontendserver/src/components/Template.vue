@@ -5,7 +5,25 @@
       app
     >
       <v-list dense>
-        <v-list-item link>
+           <v-list-item link to ="/register">
+          <v-list-item-action>
+            <v-icon>mdi-contact-mail</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Register</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+           <v-list-item link to ="/login">
+          <v-list-item-action>
+            <v-icon>mdi-contact-mail</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Login</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item link to ="/">
           <v-list-item-action>
             <v-icon>mdi-home</v-icon>
           </v-list-item-action>
@@ -13,15 +31,17 @@
             <v-list-item-title>Home</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item link>
+
+        <v-list-item link to ="/teams">
           <v-list-item-action>
             <v-icon>mdi-contact-mail</v-icon>
           </v-list-item-action>
-          <v-list-item-content>
+          <v-list-item-content >
             <v-list-item-title>Teams</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-         <v-list-item link>
+
+         <v-list-item link to ="/players">
           <v-list-item-action>
             <v-icon>mdi-contact-mail</v-icon>
           </v-list-item-action>
@@ -29,12 +49,13 @@
             <v-list-item-title>Players</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+
       </v-list>
     </v-navigation-drawer>
 
     <v-app-bar
       app
-      color="indigo"
+      color="#0B4F6C"
       dark
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
@@ -46,13 +67,11 @@
         class="fill-height"
         fluid
       >
-       <Destaque/>
-
-       <Cards/>
+       <router-view/>
       </v-container>
     </v-content>
     <v-footer
-      color="indigo"
+      color="#0B4F6C"
       app
     >
       <span class="white--text">&copy;Produced by Tiago Baptista and Manuel Moreno</span>
@@ -62,8 +81,7 @@
 
 <script>
 
-import Destaque from './Destaque';
-import Cards from './CardInicial';
+
   export default {
     props: {
       source: String,
@@ -71,9 +89,5 @@ import Cards from './CardInicial';
     data: () => ({
       drawer: null,
     }),
-     components: {
-       Destaque,
-       Cards
-  },
   }
 </script>

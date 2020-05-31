@@ -1,5 +1,5 @@
 <template>
-  <div :style="{backgroundColor:'black',width:'100%'}">
+  <div :style="{backgroundColor:'#031927',width:'100%'}">
           <h1 :style="{color:'white',marginLeft:'5vh',marginTop:'5vh'}">Em Destaque</h1>
           <table>
           <th v-for="i in items" :key="i">

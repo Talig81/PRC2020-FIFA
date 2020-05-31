@@ -4,6 +4,7 @@
 <v-card
     class="mx-auto"
     max-width="60vh"
+    color="#0B4F6C"
     :style="{marginTop:'5vh'}"
   >
   
@@ -17,7 +18,7 @@
 
     <v-card-actions>
       <v-btn
-        color="orange"
+        color="white"
         text
       >
         Explorar
@@ -29,6 +30,7 @@
      <v-card
     class="mx-auto"
     max-width="60vh"
+    color="#0B4F6C"
     :style="{marginTop:'5vh'}"
   >
     <v-img
@@ -43,7 +45,7 @@
 
     <v-card-actions>
       <v-btn
-        color="orange"
+        color="white"
         text
       >
         Explorar
