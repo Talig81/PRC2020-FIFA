@@ -37,6 +37,7 @@ Players.getLista = async function(){
     var encoded = encodeURIComponent(prefixes + query)
     console.log("here")
     try{
+	console.log(getLink+encoded)
         var response = await axios.get(getLink + encoded)
         console.log(response.data)
         return normalize(response.data)
