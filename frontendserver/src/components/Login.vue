@@ -13,13 +13,6 @@
         required
       ></v-text-field>
 
-      <v-text-field
-        v-model="email"
-        :rules="emailRules"
-        label="E-mail"
-        required
-      ></v-text-field>
-
        <v-text-field
         v-model="password"
         :rules="passwordRules"
@@ -36,7 +29,7 @@
         required
       ></v-checkbox>
       <v-btn>
-        Register
+        Login
       </v-btn>
     </v-form>
   </v-row>
