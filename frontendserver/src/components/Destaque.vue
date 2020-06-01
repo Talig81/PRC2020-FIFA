@@ -21,7 +21,7 @@ import Ouro from './CartaOuro';
     },
     data: () => ({
       drawer: null,
-       items : ["a","b","c","d"]
+       items : ["a","b","c"]
     }),
     components: {
         Ouro,

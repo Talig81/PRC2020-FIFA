@@ -10,13 +10,6 @@
       <v-toolbar-title>FIFA Companion</v-toolbar-title>
     </v-app-bar>
 
-    <v-content>
-      <v-container
-        class="fill-height"
-        fluid
-      >
-      </v-container>
-    </v-content>
     <v-footer
       color="#0B4F6C"
       app
