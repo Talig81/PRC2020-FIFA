@@ -1,43 +1,37 @@
 <template>
- <v-row align="center" :style="{marginLeft:'40%'}">
-    <v-form
-      ref="form"
-      v-model="valid"
-      :lazy-validation="lazy"
-    >
-      <v-text-field
-        v-model="name"
-        :counter="10"
-        :rules="nameRules"
-        label="Name"
-        required
-      ></v-text-field>
-
-      <v-text-field
-        v-model="email"
-        :rules="emailRules"
-        label="E-mail"
-        required
-      ></v-text-field>
-
-       <v-text-field
-        v-model="password"
-        :rules="passwordRules"
-        :type="show1 ? 'text' : 'password'"
-        label="Password"
-        required
-        
-      ></v-text-field>
-
-      <v-checkbox
-        v-model="checkbox"
-        :rules="[v => !!v || 'You must agree to continue!']"
-        label="Do you agree?"
-        required
-      ></v-checkbox>
-
-    </v-form>
-  </v-row>
+  <v-container class="fill-height" fluid>
+    <v-row align="center" justify="center">
+      <v-col cols="12" sm="8" md="8" lg="6">
+        <v-card class="elevation-12">
+          <v-toolbar color="purple" dark flat>
+            <v-toolbar-title>Sign Up</v-toolbar-title>
+          </v-toolbar>
+          <v-card-text font="arial">
+            <div>Welcome to ClassBin!</div>
+            <div>To register just submit a file with the following structure:</div>
+            <div>[----------- not included]</div>
+            <div>--------------------------------------------------------------------------------</div>
+            <div>[YourStudentID]</div>
+            <div>Nome: "YourFirstName"</div>
+            <div>Apelido: "YourLastName"</div>
+            <div>DataNascimento: DD-MM-YYYY</div>
+            <div>Morada: "YourAddress"</div>
+            <div>Email: "YourEmail"</div>
+            <div>Curso: "YourCourse"</div>
+            <div>Cadeiras: "Class1Initials"[;"Class2Initials";...].</div>
+            <div>Password: "YourPassword"</div>
+            <div>--------------------------------------------------------------------------------</div>
+            <div>It is required to disclose at least one class, preferably insert all of them. Every field is required.</div>
+            
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer />
+            <v-btn @click="submit()">Sign Up</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
