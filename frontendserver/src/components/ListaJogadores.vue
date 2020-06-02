@@ -49,7 +49,7 @@ import axios from "axios";
       }
     },
       mounted: function() {
-    const url = "http://localhost:5011/simple";
+    const url = "http://localhost:5011/players/simple";
     let config = {
       headers: {
         Authorization: "Bearer " + this.getToken
