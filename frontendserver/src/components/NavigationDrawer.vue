@@ -3,7 +3,6 @@
       dark
       clipped
       permanent
-      :style="{heigth:'100%'}"
     >
       <v-list>
         <v-list-item v-for="([icon, text,toGo], i) in items" :to="toGo" :key="i" link>
@@ -20,6 +19,11 @@
 
 </template>
 
+<style>
+.v-navigation-drawer__content{
+  min-height: 87.5vh !important
+}
+</style>
 <script>
 export default {
   data: () => ({

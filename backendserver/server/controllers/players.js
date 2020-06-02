@@ -65,8 +65,24 @@ Players.getSimple = async function(){
     try{
 	console.log(getLink+encoded)
         var response = await axios.get(getLink + encoded)
-        console.log(response.data)
-        return normalize(response.data)
+        console.log(JSON.stringify(normalize(response.data)))
+        //for (let index = 0; index < JSON.stringify(normalize(response.data)).length; index++) {
+            //console.log("dentro")
+            //console.log(JSON.stringify(normalize(response.data))[index].position)
+            //JSON.stringify(normalize(response.data))[index].position.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+            
+        //}
+        let r=normalize(response.data)
+        r.map(jogador=> {
+            jogador.player      = jogador.player.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+            jogador.club        = jogador.club.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+            jogador.position    = jogador.position.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+            jogador.nationality = jogador.nationality.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+            jogador.quality     = jogador.quality.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+            jogador.foot        = jogador.foot.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+        }
+            )
+        return r
     }
     catch(e){
         throw(e)

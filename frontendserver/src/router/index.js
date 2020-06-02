@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Inicial from '../components/PaginaInicial.vue';
-import Login from '../components/Login.vue';
+import Jogadores from '../components/ListaJogadores.vue';
 
 Vue.use(Router);
 
@@ -14,9 +14,9 @@ export default new Router({
       component: Inicial
     },
     {
-      path: '/login',
-      name: 'login',
-      component: Login
+      path: '/players',
+      name: 'jogadores',
+      component: Jogadores
     },
   ]
 });
