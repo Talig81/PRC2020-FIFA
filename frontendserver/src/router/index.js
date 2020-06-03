@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Inicial from '../components/PaginaInicial.vue';
-import Registo from '../components/Registo.vue';
+import Registo from '../components/Registar.vue';
 import Login from '../components/Login.vue';
 
 Vue.use(Router);
