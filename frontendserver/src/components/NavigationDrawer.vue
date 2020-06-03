@@ -19,19 +19,18 @@
 
 </template>
 
+<style>
+.v-navigation-drawer__content{
+  min-height: 87.5vh !important
+}
+</style>
 <script>
 export default {
   data: () => ({
     items: [
-      ["mdi-home", "Complexity","/complex"],
       ["mdi-home", "Home","/"],
-      ["mdi-account", "Profile","/profile"],
-      ["mdi-email", "Messages","/chat"],
-      ["mdi-account-group","Groups","/groups"],
-      ["mdi-plus-box", "Add Post","/addpost"],
-      ["mdi-account-multiple-check", "Friends","/friends"],
-      ["mdi-calendar", "Eventos","/eventos"],
-      ["mdi-earth", "Utilizadores", "/users"],
+      ["mdi-account", "Teams","/teams"],
+      ["mdi-account", "Players","/players"],
     ],
   })
 };

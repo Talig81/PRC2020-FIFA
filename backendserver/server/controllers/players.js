@@ -27,7 +27,7 @@ var prefixes = `
     PREFIX : <http://www.di.uminho.pt/prc2020/2020/1/fut#>
 `
 
-var getLink = "http://localhost:7200/repositories/repo-test-1" + "?query=" 
+var getLink = "http://45.76.32.59:7200/repositories/repo-test-1" + "?query=" 
 
 
 Players.getLista = async function(){
@@ -46,14 +46,48 @@ Players.getLista = async function(){
         throw(e)
     }
 }
-/*
-Players.getLista = async function(){
-    var query = `select ?club where { 
-        :Ronaldo-IconBase :hasClub  ?club.
-    } limit 100  `
+
+Players.getSimple = async function(){
+    var query = `select ?player ?name ?age ?birth ?club ?position ?foot ?nationality ?quality ?overall where { 
+        ?player a :Player.
+        ?player  :age ?age.
+        ?player  :birth_date ?birth.
+        ?player  :hasClub ?club.
+        ?player  :hasPosition ?position.
+        ?player  :hasFoot ?foot.
+        ?player  :hasNationality ?nationality.
+        ?player  :hasQuality ?quality.
+        ?player  :name ?name.
+        ?player  :overall ?overall.
+    } limit 1000 `
     var encoded = encodeURIComponent(prefixes + query)
-    console.log(encoded)
-    console.log("get lista")
-}*/
+    console.log("here")
+    try{
+	console.log(getLink+encoded)
+        var response = await axios.get(getLink + encoded)
+        console.log(JSON.stringify(normalize(response.data)))
+        //for (let index = 0; index < JSON.stringify(normalize(response.data)).length; index++) {
+            //console.log("dentro")
+            //console.log(JSON.stringify(normalize(response.data))[index].position)
+            //JSON.stringify(normalize(response.data))[index].position.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+            
+        //}
+        let r=normalize(response.data)
+        r.map(jogador=> {
+            jogador.player      = jogador.player.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+            jogador.club        = jogador.club.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+            jogador.position    = jogador.position.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+            jogador.nationality = jogador.nationality.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+            jogador.quality     = jogador.quality.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+            jogador.foot        = jogador.foot.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+        }
+            )
+        return r
+    }
+    catch(e){
+        throw(e)
+    }
+}
+
 
 
