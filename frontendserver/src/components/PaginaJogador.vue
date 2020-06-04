@@ -99,7 +99,7 @@
                 </th>
                 <tr>
                     <td>
-                       <v-card :style="{backgroundColor:'#031927',color:'white',height:'74vh',width:'35vh',marginTop:'5vh'}">
+                       <v-card :style="{backgroundColor:'#031927',color:'white',height:'84vh',width:'35vh',marginTop:'5vh'}">
                             <table>
                                 <tr>
                                    <p :style="{marginTop:'1vh',marginLeft:'1vh'}"><b> Name</b> : {{this.player1[0].name}}</p>
@@ -138,7 +138,7 @@
                         </v-card>
                     </td>
                     <td>
-                       <v-card :style="{backgroundColor:'#031927',color:'white',height:'74vh',width:'98vh',marginTop:'5vh',marginLeft:'3.8vh'}">
+                       <v-card :style="{backgroundColor:'#031927',color:'white',height:'84vh',width:'98vh',marginTop:'5vh',marginLeft:'3.8vh'}">
                             <table :style="{width:'100%',marginTop:'5vh'}">
                               
                                 <tr>
@@ -270,6 +270,66 @@
                                    </td>
                                    <td>
                                         <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Jumping : </p>
+                                   </td>
+                                </tr>
+
+                                <tr>
+                                   <td>
+                                       <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Balance: </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Heading Accur: </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Stamina : </p>
+                                   </td>
+                                </tr>
+
+                                <tr>
+                                   <td>
+                                       <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Reactions: </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Def Aware: </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Strength : </p>
+                                   </td>
+                                </tr>
+
+                                <tr>
+                                   <td>
+                                       <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Ball Control: </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}">Standing Tackle: </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Agression : </p>
+                                   </td>
+                                </tr>
+
+                                 <tr>
+                                   <td>
+                                       <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Dribbling: </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}">Sliding Tackle: </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Agression : </p>
+                                   </td>
+                                </tr>
+
+                                <tr>
+                                   <td>
+                                       <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Composure: </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"></p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> </p>
                                    </td>
                                 </tr>
                                
