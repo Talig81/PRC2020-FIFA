@@ -59,7 +59,7 @@ Players.getSimple = async function(){
         ?player  :hasQuality ?quality.
         ?player  :name ?name.
         ?player  :overall ?overall.
-    } limit 1000 `
+    } limit 1000`
     var encoded = encodeURIComponent(prefixes + query)
     console.log("here")
     try{
@@ -70,7 +70,6 @@ Players.getSimple = async function(){
             //console.log("dentro")
             //console.log(JSON.stringify(normalize(response.data))[index].position)
             //JSON.stringify(normalize(response.data))[index].position.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
-            
         //}
         let r=normalize(response.data)
         r.map(jogador=> {
@@ -81,8 +80,77 @@ Players.getSimple = async function(){
             jogador.quality     = jogador.quality.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
             jogador.foot        = jogador.foot.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
         }
-            )
-        return r
+        )
+        const uniqueag = r.reduce((acc, current) => {
+            const x = acc.find(item => item.player === current.player);
+            if (!x) {
+              return acc.concat([current]);
+            } else {
+              return acc;
+            }
+          }, []);
+          console.log(uniqueag)
+        return uniqueag
+    }
+    catch(e){
+        throw(e)
+    }
+}
+
+Players.getCardInfo = async function(name){
+    console.log(name)
+    var query = `select ?player ?name ?age ?birth ?club ?position ?foot ?nationality ?quality ?overall ?pac ?shot ?pass ?drib ?def ?phys
+	where { 
+        ?player a :Player.
+    	FILTER (?player = :`+name+`).
+        ?player   :age ?age.
+        ?player   :birth_date ?birth.
+        ?player   :hasClub ?club.
+        ?player   :hasPosition ?position.
+        ?player   :hasFoot ?foot.
+        ?player   :hasNationality ?nationality.
+        ?player   :hasQuality ?quality.
+        ?player   :name ?name.
+        ?player   :overall ?overall.
+        ?player   :hasPace ?pac_aux.
+        ?pac_aux  :overall ?pac.
+        ?player   :hasShooting ?shot_aux.
+        ?shot_aux :overall ?shot.
+        ?player	  :hasPassing ?pass_aux.
+        ?pass_aux :overall ?pass.
+        ?player   :hasDribbling ?drib_aux.
+        ?drib_aux :overall ?drib.
+        ?player   :hasDefending ?def_aux.
+        ?def_aux  :overall ?def.
+        ?player   :hasPhysical ?phys_aux.
+        ?phys_aux :overall ?phys.
+	}
+LIMIT 1`
+    var encoded = encodeURIComponent(prefixes + query)
+    try{
+	console.log(getLink+encoded)
+        var response = await axios.get(getLink + encoded)
+        console.log("cards")
+        let r=normalize(response.data)
+        r.map(jogador=> {
+            jogador.player      = jogador.player.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+            jogador.club        = jogador.club.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+            jogador.position    = jogador.position.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+            jogador.nationality = jogador.nationality.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+            jogador.quality     = jogador.quality.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+            jogador.foot        = jogador.foot.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+        }
+        )
+        const uniqueag = r.reduce((acc, current) => {
+            const x = acc.find(item => item.player === current.player);
+            if (!x) {
+              return acc.concat([current]);
+            } else {
+              return acc;
+            }
+          }, []);
+          console.log(uniqueag)
+        return uniqueag
     }
     catch(e){
         throw(e)
