@@ -37,7 +37,7 @@
        </table>
        <table  :style="{marginTop:'-15vh',marginLeft:'10vh',borderSpacing:'1vh',position:'absolute'}">
            <td>
-               <b>value</b> PAC
+               <b>pac</b> PAC
            </td>
            <td>
                <b>value</b>DRI
@@ -59,6 +59,7 @@
   export default {
     props: {
       source: String,
+      player:[]
     },
     data: () => ({
       drawer: null,

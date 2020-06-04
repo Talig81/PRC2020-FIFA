@@ -31,6 +31,7 @@ import axios from "axios";
       return {
         items: [],
         headers: [
+          { text: 'Player', value: 'player' },
           {
             text: 'Name',
             align: 'start',

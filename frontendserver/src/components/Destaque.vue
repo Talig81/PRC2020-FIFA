@@ -15,14 +15,43 @@
 que nas proximas versoes vao ter de ser passados como params para as cartas 
 */
 import Ouro from './CartaOuro';
+import axios from "axios";
   export default {
     props: {
       source: String,
     },
-    data: () => ({
+     data: () => ({
       drawer: null,
-       items : ["a","b","c"]
+      player1: [],
+      player2: [],
+      player3: []
     }),
+     mounted: function() {
+    const url = "http://localhost:5011/players/card/Ronaldo-Normal";
+    let config = {
+      headers: {
+        Authorization: "Bearer " + this.getToken
+      }
+    };
+    axios.get(url, config).then(res => {
+      this.player1 = res.data;
+      console.log(this.items)
+    });
+
+    const url2 = "http://localhost:5011/players/card/Neymar-Normal";
+  
+    axios.get(url2, config).then(res => {
+      this.player2 = res.data;
+      console.log(this.items)
+    });
+
+    const url3 = "http://localhost:5011/players/card/Cavani-Normal";
+  
+    axios.get(url3, config).then(res => {
+      this.player3 = res.data;
+      console.log(this.items)
+    });
+  },
     components: {
         Ouro,
   },
