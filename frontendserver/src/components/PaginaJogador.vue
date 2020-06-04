@@ -1,4 +1,5 @@
 <template>
+<div>
   <div :style="{backgroundColor:'#031927',width:'35vh',height:'45vh',marginTop:'5vh',marginLeft:'5vh'}">
           <table>
                 <th>
@@ -80,7 +81,69 @@
                     </v-card>
                 </th>
           </table>
+
         </div>
+          <div :style="{width:'35vh',height:'7vh',marginTop:'5vh',marginLeft:'5vh'}">
+          <table>
+                <th>
+                     <v-card :style="{backgroundColor:'#031927',color:'white',height:'7vh',width:'35vh'}">
+                  <v-card-title class="headline">Personal Info</v-card-title>
+                   </v-card>
+                </th>
+                <th>
+                    <v-card
+                    :style="{width:'98vh',position:'absolute',backgroundColor:'#031927',color:'white',borderSpacing:'20vh',height:'7vh',marginLeft:'3.8vh'}"
+                    >
+                     <v-card-title class="headline">Prices</v-card-title>
+                    </v-card>
+                </th>
+                <tr>
+                    <td>
+                       <v-card :style="{backgroundColor:'#031927',color:'white',height:'72vh',width:'35vh',marginTop:'5vh'}">
+                            <table>
+                                <tr>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Name : </p>
+                                </tr>
+                                 <tr>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Traits : </p>
+                                </tr>
+                                <tr>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Club : </p>
+                                </tr>
+                                 <tr>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Nationality : </p>
+                                </tr>
+                                 <tr>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Weak Foot : </p>
+                                </tr>
+                                 <tr>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Heigth : </p>
+                                </tr>
+                                 <tr>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Weigth : </p>
+                                </tr>
+                                 <tr>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Def WR : </p>
+                                </tr>
+                                 <tr>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Atack WR  : </p>
+                                </tr>
+                                 <tr>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Age : </p>
+                                </tr>
+                                 <tr>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Skills : </p>
+                                </tr>
+                            </table>
+                        </v-card>
+                    </td>
+                    <td>
+                        cenas
+                    </td>
+                </tr>
+          </table>
+        </div>
+    </div>
 </template>
 
 <script>

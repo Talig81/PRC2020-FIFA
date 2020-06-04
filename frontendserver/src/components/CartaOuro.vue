@@ -5,7 +5,7 @@
             width="40vh"
             src="../assets/cards/gold.png"
         ></v-img>
-        <div :style="{marginTop:'-18vh',marginLeft:'8vh',position:'absolute'}">
+        <div :style="{marginTop:'-18vh',marginLeft:'8vh',position:'absolute',fontSize:'1.5vh'}">
                <b>{{this.player[0].name}}</b>  
         </div>
         <v-img :style="{marginTop:'-36vh',marginLeft:'17vh',position:'absolute'}"
