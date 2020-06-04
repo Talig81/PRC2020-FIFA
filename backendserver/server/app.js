@@ -9,7 +9,8 @@ var usersRouter = require('./routes/users');
 
 
 var app = express();
-
+var cors = require('cors')
+app.use(cors());
 
 // Conexão base de dados
 var mongoose = require('mongoose');
