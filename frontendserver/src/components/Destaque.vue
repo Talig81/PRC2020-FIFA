@@ -2,10 +2,18 @@
   <div :style="{backgroundColor:'#031927',width:'100%'}">
           <h1 :style="{color:'white',marginLeft:'5vh',marginTop:'5vh'}">Em Destaque</h1>
           <table>
-          <th v-for="i in items" :key="i">
+                <th>
                <div :style="{backgroundColor:'black',width:'100%',height:'2%'}"></div>
-                <Ouro :style="{width:'100%',marginLeft:'3vh',marginTop:'12vh'}"/>
-          </th>
+                <Ouro  v-bind:player ="this.player1" :style="{width:'100%',marginLeft:'3vh',marginTop:'12vh'}"/>
+                </th>
+                <th>
+                <div :style="{backgroundColor:'black',width:'100%',height:'2%'}"></div>
+                <Ouro  v-bind:player ="this.player2" :style="{width:'100%',marginLeft:'3vh',marginTop:'12vh'}"/>
+                </th>
+                <th>
+                <div :style="{backgroundColor:'black',width:'100%',height:'2%'}"></div>
+                <Ouro  v-bind:player ="this.player3" :style="{width:'100%',marginLeft:'3vh',marginTop:'12vh'}"/>
+                </th>
           </table>
         </div>
 </template>
@@ -35,21 +43,21 @@ import axios from "axios";
     };
     axios.get(url, config).then(res => {
       this.player1 = res.data;
-      console.log(this.items)
+      console.log(this.player1)
     });
 
     const url2 = "http://localhost:5011/players/card/Neymar-Normal";
   
     axios.get(url2, config).then(res => {
       this.player2 = res.data;
-      console.log(this.items)
+      console.log(this.player2)
     });
 
-    const url3 = "http://localhost:5011/players/card/Cavani-Normal";
+    const url3 = "http://localhost:5011/players/card/Pepe-Normal";
   
     axios.get(url3, config).then(res => {
       this.player3 = res.data;
-      console.log(this.items)
+      console.log(this.player3)
     });
   },
     components: {

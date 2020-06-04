@@ -5,8 +5,8 @@
             width="40vh"
             src="../assets/cards/gold.png"
         ></v-img>
-        <div :style="{marginTop:'-18vh',marginLeft:'17vh',position:'absolute'}">
-               <b>NOME</b>  
+        <div :style="{marginTop:'-18vh',marginLeft:'8vh',position:'absolute'}">
+               <b>{{this.player[0].name}}</b>  
         </div>
         <v-img :style="{marginTop:'-36vh',marginLeft:'17vh',position:'absolute'}"
             height="17vh"
@@ -15,10 +15,10 @@
         ></v-img>
        <table :style="{marginTop:'-37vh',marginLeft:'8vh',position:'absolute'}">
            <th>
-               RATING
+               {{this.player[0].overall}}
            </th>
            <tr>
-               position
+               {{this.player[0].position}}
            </tr>
            <tr>
               <v-img :style="{marginTop:'1vh'}"
@@ -37,18 +37,18 @@
        </table>
        <table  :style="{marginTop:'-15vh',marginLeft:'10vh',borderSpacing:'1vh',position:'absolute'}">
            <td>
-               <b>pac</b> PAC
+               <b> {{this.player[0].pac}}</b> PAC
            </td>
            <td>
-               <b>value</b>DRI
+               <b> {{this.player[0].drib}}</b>DRI
            </td>
            <tr>
-               <td><b>value</b> SHO </td>
-                <td><b>value</b> DEF </td>
+               <td><b> {{this.player[0].shot}}</b> SHO </td>
+                <td><b> {{this.player[0].def}}</b> DEF </td>
            </tr>
            <tr>
-               <td><b>value</b> PAS </td>
-                <td><b>value</b> PHY </td>
+               <td><b> {{this.player[0].pass}}</b> PAS </td>
+                <td><b> {{this.player[0].phys}}</b> PHY </td>
            </tr>
        </table>
    </div>
@@ -57,9 +57,8 @@
 <script>
   /** Nos props vamos ter que ter todas as infos para preencher os campos necessários */
   export default {
-    props: {
-      source: String,
-      player:[]
+   props: {
+     player: Array,
     },
     data: () => ({
       drawer: null,
