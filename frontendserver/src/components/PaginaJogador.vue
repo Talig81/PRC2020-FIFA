@@ -94,42 +94,42 @@
                     <v-card
                     :style="{width:'98vh',position:'absolute',backgroundColor:'#031927',color:'white',borderSpacing:'20vh',height:'7vh',marginLeft:'3.8vh'}"
                     >
-                     <v-card-title class="headline">Prices</v-card-title>
+                     <v-card-title class="headline">Statistics</v-card-title>
                     </v-card>
                 </th>
                 <tr>
                     <td>
-                       <v-card :style="{backgroundColor:'#031927',color:'white',height:'72vh',width:'35vh',marginTop:'5vh'}">
+                       <v-card :style="{backgroundColor:'#031927',color:'white',height:'74vh',width:'35vh',marginTop:'5vh'}">
                             <table>
                                 <tr>
-                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Name : </p>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"><b> Name</b> : {{this.player1[0].name}}</p>
                                 </tr>
                                  <tr>
-                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Traits : </p>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> <b>Traits</b> : {{this.player1[0].features}} </p>
                                 </tr>
                                 <tr>
-                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Club : </p>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> <b>Club</b> :{{this.player1[0].club.replace("_"," ")}} </p>
                                 </tr>
                                  <tr>
-                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Nationality : </p>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> <b>Nationality</b> : {{this.player1[0].nationality}} </p>
                                 </tr>
                                  <tr>
-                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Weak Foot : </p>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> <b>Foot</b> : {{this.player1[0].foot}} </p>
                                 </tr>
                                  <tr>
-                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Heigth : </p>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> <b>Height</b> : {{this.player1[0].height}} </p>
                                 </tr>
                                  <tr>
-                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Weigth : </p>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> <b>Weight</b> : {{this.player1[0].weight}}</p>
                                 </tr>
                                  <tr>
-                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Def WR : </p>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> <b>Def WR</b> : </p>
                                 </tr>
                                  <tr>
                                    <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Atack WR  : </p>
                                 </tr>
                                  <tr>
-                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Age : </p>
+                                   <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> <b>Age</b> :{{this.player1[0].age}} </p>
                                 </tr>
                                  <tr>
                                    <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Skills : </p>
@@ -138,7 +138,144 @@
                         </v-card>
                     </td>
                     <td>
-                        cenas
+                       <v-card :style="{backgroundColor:'#031927',color:'white',height:'74vh',width:'98vh',marginTop:'5vh',marginLeft:'3.8vh'}">
+                            <table :style="{width:'100%',marginTop:'5vh'}">
+                              
+                                <tr>
+                                   <td>
+                                        <b><p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Pace : </p></b>
+                                   </td>
+                                   <td>
+                                        <b><p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Shooting : </p></b>
+                                   </td>
+                                   <td>
+                                        <b><p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Passing : </p></b>
+                                   </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <v-progress-linear value="15"></v-progress-linear>
+                                    </td>
+                                    <td>
+                                        <v-progress-linear value="15"></v-progress-linear>
+                                    </td>
+                                    <td>
+                                        <v-progress-linear value="15"></v-progress-linear>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Accelaration : </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Positioning : </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Vision : </p>
+                                   </td>
+                                </tr>
+                                
+                                <tr>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Sprint Speed : </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Finishing : </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Crossing : </p>
+                                   </td>
+                                </tr>
+
+                                <tr>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}">  </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Shot Power : </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> FK Accuracy : </p>
+                                   </td>
+                                </tr>
+
+                                 <tr>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}">  </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Long Shots: </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Short : </p>
+                                   </td>
+                                </tr>
+
+                                 <tr>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}">  </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Volleys: </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Long : </p>
+                                   </td>
+                                </tr>
+
+                                <tr>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}">  </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Penalties: </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Curv : </p>
+                                   </td>
+                                </tr>
+
+                                 <tr>
+                                   <td>
+                                        <b><p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Dribbling: </p></b>
+                                   </td>
+                                   <td>
+                                        <b><p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Defending: </p></b>
+                                   </td>
+                                   <td>
+                                        <b><p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Physicality : </p></b>
+                                   </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <v-progress-linear value="15"></v-progress-linear>
+                                    </td>
+                                    <td>
+                                        <v-progress-linear value="15"></v-progress-linear>
+                                    </td>
+                                    <td>
+                                        <v-progress-linear value="15"></v-progress-linear>
+                                    </td>
+                                </tr>
+
+                                 <tr>
+                                   <td>
+                                       <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Agility: </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Interceptions: </p>
+                                   </td>
+                                   <td>
+                                        <p :style="{marginTop:'1vh',marginLeft:'1vh'}"> Jumping : </p>
+                                   </td>
+                                </tr>
+                               
+                                
+                            </table>
+                        </v-card>
                     </td>
                 </tr>
           </table>

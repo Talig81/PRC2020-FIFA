@@ -99,10 +99,11 @@ Players.getSimple = async function(){
 
 Players.getCardInfo = async function(name){
     console.log(name)
-    var query = `select ?player ?name ?age ?birth ?club ?position ?foot ?nationality ?quality ?overall ?pac ?shot ?pass ?drib ?def ?phys
+    var query = `select ?player ?features ?name ?age ?birth ?club ?position ?foot ?nationality ?quality ?overall ?pac ?shot ?pass ?drib ?def ?phys
 	where { 
         ?player a :Player.
-    	FILTER (?player = :`+name+`).
+        FILTER (?player = :`+name+`).
+        ?player   :features ?features.
         ?player   :age ?age.
         ?player   :birth_date ?birth.
         ?player   :hasClub ?club.
