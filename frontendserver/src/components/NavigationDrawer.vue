@@ -21,7 +21,7 @@
 
 <style>
 .v-navigation-drawer__content{
-  min-height: 87.5vh !important
+  min-height: 150.5vh !important
 }
 </style>
 <script>
