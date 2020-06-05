@@ -2,13 +2,15 @@ var uuid4 = require('uuid')
 var passport = require('passport')
 const jwt = require('jsonwebtoken')
 const fs = require('fs')
-
 var express = require('express');
 var router = express.Router();
 var Users = require('../controllers/users')
 
+const privateKey = fs.readFileSync('./keys/privatekey.key', 'utf-8')
 
-/* GET users listing. */
+const { uploadI } = require('./../multer/mlt')
+
+/* User Register. */
 router.post('/register', function (req, res, next) {
   Users.getUser(req.body.email).then(dados => {
     if (dados === null) {
@@ -29,5 +31,12 @@ router.post('/register', function (req, res, next) {
     };
   })
 })
+
+/* User Login */
+router.post('/login', passport.authenticate('local', { session: false }), function (req, res) {
+  jwt.sign({ user: req.user }, privateKey, { expiresIn: '2h', algorithm: 'RS256' }, (err, tokengo) => {
+    res.status(200).jsonp({ user: req.user, token: tokengo });
+  })
+});
 
 module.exports = router;
