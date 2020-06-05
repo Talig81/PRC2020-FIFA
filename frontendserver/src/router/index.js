@@ -4,7 +4,7 @@ import Inicial from '../components/PaginaInicial.vue';
 import Registo from '../components/Registar.vue';
 import Login from '../components/Login.vue';
 import CriarEquipa from '../components/CriarEquipa.vue';
-
+import Teste from '../components/Teste.vue'
 import Jogadores from '../components/ListaJogadores.vue';
 import ConsultarJogador from '../components/PaginaJogador.vue'
 
@@ -30,9 +30,24 @@ export default new Router({
       component: CriarEquipa
     },
     {
+      path: '/registar',
+      name: 'registar',
+      component: Registo
+    },
+    {
       path: '/players/consult',
       name: 'consultar_jogador',
       component: ConsultarJogador
+    },
+    {
+      path: '/teste',
+      name: 'teste',
+      component: Teste
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     }
   ]
 });

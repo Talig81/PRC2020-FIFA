@@ -41,6 +41,7 @@ passport.use(new JWTStrategy({
     secretOrKey: publicKey
 },
     function (jwtPayload, done) {
+        console.log("entrei")
         Users.getUser(jwtPayload.user.email).then(dados => {
             var user = dados;
             return done(null,user);

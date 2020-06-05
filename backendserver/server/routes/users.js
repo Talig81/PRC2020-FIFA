@@ -39,4 +39,9 @@ router.post('/login', passport.authenticate('local', { session: false }), functi
   })
 });
 
+router.get('/teste',passport.authenticate('jwt', { session: false }), function (req, res){
+  res.status(200).jsonp({ user: req.user });
+})
+
+
 module.exports = router;
