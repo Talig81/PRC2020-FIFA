@@ -35,7 +35,7 @@ export default new Router({
       component: Registo
     },
     {
-      path: '/players/consult',
+      path: '/players/consult/:player',
       name: 'consultar_jogador',
       component: ConsultarJogador
     },

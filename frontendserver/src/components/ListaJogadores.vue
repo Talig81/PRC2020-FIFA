@@ -18,7 +18,20 @@
         :items-per-page="15"
         :search="search"
         class="elevation-1"
-    ></v-data-table>
+    >
+          <template v-slot:item.actions="{ item }">
+        <v-icon
+          small
+          class="mr-2"
+          @click="editItem(item)"
+        >
+          mdi-eye
+        </v-icon>
+      </template>
+      <template v-slot:no-data>
+        <v-btn color="primary" @click="show_details">Reset</v-btn>
+      </template></v-data-table>
+    
     </v-card>
 </div>
 </template>
@@ -45,9 +58,15 @@ import axios from "axios";
           { text: 'Quality', value: 'quality' },
           { text: 'Age', value: 'age' },
           { text: 'Foot', value: 'foot' },
+          { text: 'Actions', value: 'actions', sortable: false },
         ],
         search: '',
       }
+    },
+    methods: {
+     editItem (item) {
+        this.$router.push({ name: "consultar_jogador",  params: { player: item.player}});
+    }
     },
       mounted: function() {
     const url = "http://localhost:5011/players/simple";

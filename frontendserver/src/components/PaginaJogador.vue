@@ -356,9 +356,14 @@ import axios from "axios";
      data: () => ({
       drawer: null,
       player1: [],
+      player_name: ''
     }),
+    created() {
+            this.player_name = this.$route.params.player;
+        },
      mounted: function() {
-    const url = "http://localhost:5011/players/card/Ronaldo-Normal";
+    console.log("param" +this.player_name)
+    const url = "http://localhost:5011/players/card/"+this.player_name;
     let config = {
       headers: {
         Authorization: "Bearer " + this.getToken
