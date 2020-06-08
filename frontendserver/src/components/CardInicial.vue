@@ -20,6 +20,7 @@
       <v-btn
         color="white"
         text
+        @click="showPlayers"
       >
         Explorar
       </v-btn>
@@ -47,6 +48,7 @@
       <v-btn
         color="white"
         text
+        @click="show_teams"
       >
         Explorar
       </v-btn>
@@ -63,6 +65,15 @@
     props: {
       source: String,
     },
+    methods: {
+      showTeams() {
+        this.$router.push({ name: "consultar_equipas"});
+    },
+    showPlayers() {
+        this.$router.push({ name: "jogadores"});
+    }
+    }
+    ,
     data: () => ({
       drawer: null,
     }),

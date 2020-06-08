@@ -1,5 +1,5 @@
 <template>
-  <v-container class="fill-height" fluid>
+  <v-container class="fill-height" fluid :style="{marginTop:'-70vh'}">
     <v-row align="center" justify="center">
       <v-col cols="12" sm="8" md="8" lg="6">
         <v-card class="elevation-12">
@@ -67,7 +67,7 @@ export default {
               this.setToken(response.data.token);
  
 
-              this.$router.push("/asdfasdf");
+              this.$router.push("/profile");
               break;
             default:
               this.$router.push("/login");

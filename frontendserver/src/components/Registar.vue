@@ -1,10 +1,10 @@
 <template>
-  <v-container class="fill-height" fluid>
+  <v-container class="fill-height" fluid :style="{marginTop:'-70vh'}">
     <v-row align="center" justify="center">
       <v-col cols="12" sm="8" md="8" lg="6">
         <v-card class="elevation-12">
           <v-toolbar color="grey" dark flat>
-            <v-toolbar-title>Registar</v-toolbar-title>
+            <v-toolbar-title>Register</v-toolbar-title>
           </v-toolbar>
           <v-card-text>
             <v-form>

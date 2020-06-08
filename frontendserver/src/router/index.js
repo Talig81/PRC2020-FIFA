@@ -7,6 +7,7 @@ import CriarEquipa from '../components/CriarEquipa.vue';
 import Teste from '../components/Teste.vue'
 import Jogadores from '../components/ListaJogadores.vue';
 import ConsultarJogador from '../components/PaginaJogador.vue'
+import Perfil from '../components/Perfil.vue'
 
 
 Vue.use(Router);
@@ -48,6 +49,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: Perfil
     }
   ]
 });

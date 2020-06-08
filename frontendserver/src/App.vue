@@ -4,6 +4,7 @@
       <v-app-bar app color="#0B4F6C" dark>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title>FIFA Companion</v-toolbar-title>
+
       </v-app-bar>
       <v-container class="grey lighten-5 pa-0" grid-list-md fluid>
         <v-row no-gutters>
@@ -24,16 +25,37 @@
 
 <script>
 import NavigationDrawer from "./components/NavigationDrawer";
-
+import axios from "axios";
+import { mapGetters } from "vuex";
 export default {
   name: "App",
 
   components: {
     NavigationDrawer
   },
+  computed: {
 
-  data: () => ({
-    //
-  })
+    ...mapGetters(["getToken"])
+  },
+  
+    mounted: function() {
+    const url = "http://45.76.32.59:5011/users/teste"
+    let config = {
+      headers: {
+        Authorization:
+          "Bearer " +
+          this.getToken
+      }
+    };
+    axios.get(url, config).then(res => {
+      console.log(res.data);
+      this.name = res.data.user.nome;
+      this.email = res.data.user.email;
+      this.user = res.data.user;
+      this.id = res.data.user.id;
+      this.logged_in=1
+    });
+
+  }
 };
 </script>
