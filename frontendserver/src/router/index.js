@@ -8,6 +8,7 @@ import Teste from '../components/Teste.vue'
 import Jogadores from '../components/ListaJogadores.vue';
 import ConsultarJogador from '../components/PaginaJogador.vue'
 import Perfil from '../components/Perfil.vue'
+import MinhasEquipas from '../components/MinhasEquipas.vue'
 
 
 Vue.use(Router);
@@ -54,6 +55,11 @@ export default new Router({
       path: '/profile',
       name: 'profile',
       component: Perfil
+    },
+    {
+      path: '/teams',
+      name: 'teams',
+      component: MinhasEquipas
     }
   ]
 });

@@ -53,7 +53,7 @@ export default {
   data: () => ({
     items: [
       ["mdi-home", "Home","/"],
-      ["mdi-account", "Teams","/teams"],
+      ["mdi-account", "My Teams","/teams"],
       ["mdi-account", "Players","/players"],
     ],
      logged_in : 0

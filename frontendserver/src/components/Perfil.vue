@@ -2,16 +2,7 @@
   <v-container class="grey lighten-5 pa-0" grid-list-md fluid :style="{marginTop:'5%'}">
     <v-row no-gutters>
       <v-col>
-<<<<<<< HEAD
-        <v-card class="mx-auto" max-width="600" min-width="75%" tile>
-          <v-img class="pa-4" height="100%" src="/capa2.png" > 
-            <v-row align="center" class="fill-height">
-              <v-col align-content="center" class="pa-0" cols="12">
-                <v-avatar class="profile align-center" color="grey" size="150" roundtile :style="{marginLeft:'5%',marginTop:'5%'}">
-                  <v-img  src="../assets/logo.png" to="/profile" link ></v-img>
-                </v-avatar>
-=======
-        <v-card class="mx-auto" max-width="600" tile>
+         <v-card class="mx-auto" max-width="600" tile>
           <v-img class="pa-4" height="100%" src="/logo.png">
             <v-row align="center" class="fill-height">
               <v-col align-content="center" class="pa-0" cols="12">
@@ -19,9 +10,8 @@
                       <v-img v-if="hasAvatar(user)" :src="auxiliar(user)"></v-img>
                       <v-img v-else src="../assets/logo.png" to="/profile" link></v-img>
                     </v-avatar>
->>>>>>> e68c4c67fcb2ff10f9ce9f9dbb55f14f92b4e168
               </v-col>
-              <v-card flat class="text-xs-center ma-3">
+<v-card flat class="text-xs-center ma-3">
                 <v-list-item>
                   <v-list-item-title class="headline">{{name}} </v-list-item-title>
                 </v-list-item>
@@ -70,10 +60,8 @@
 
 import axios from "axios";
 import { mapGetters } from "vuex";
-
 export default {
   computed: {
-
     ...mapGetters(["getToken"])
   },
   data: () => ({
@@ -102,7 +90,6 @@ export default {
       this.src = "http://45.76.32.59:5011/uploads/" + res.data.user.id + "/avatar" + res.data.user.avatar
       
     });
-
     
   },
   methods: {
