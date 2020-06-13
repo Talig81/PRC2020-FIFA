@@ -3,12 +3,13 @@
     <v-row no-gutters>
       <v-col>
         <v-card class="mx-auto" max-width="600" tile>
-          <v-img class="pa-4" height="100%" src="/capa2.png">
+          <v-img class="pa-4" height="100%" src="/logo.png">
             <v-row align="center" class="fill-height">
               <v-col align-content="center" class="pa-0" cols="12">
-                <v-avatar class="profile align-center" color="grey" size="150" roundtile>
-                  <v-img  src="../assets/logo.png" to="/profile" link></v-img>
-                </v-avatar>
+                  <v-avatar class="profile align-center" color="grey" size="150" roundtile>
+                      <v-img v-if="hasAvatar(user)" :src="auxiliar(user)"></v-img>
+                      <v-img v-else src="../assets/logo.png" to="/profile" link></v-img>
+                    </v-avatar>
               </v-col>
               <v-card flat class="text-xs-center ma-3">
                 <v-list-item>
@@ -30,10 +31,19 @@
                   <v-icon>mdi-comment-text-outline</v-icon>
                   <span>Biografia</span>
                   <div align="center">
-                    <v-btn text class="grey">
-                      <v-icon>mdi-account-edit</v-icon>
-                      <span>Adicionar</span>
-                    </v-btn>
+                      <v-btn
+                          color="success"
+                          @click="chooseFile()"
+                          class="font-weight-light"
+                        >Upload Avatar</v-btn>
+                        <input
+                          class="mx-0 font-weight-light"
+                          type="file"
+                          accept="image/*"
+                          @change="uploadImage($event)"
+                          id="fileUpload"
+                          hidden
+                        />
                   </div>
                 </div>
               </v-card>
@@ -60,6 +70,8 @@ export default {
   data: () => ({
     name: "",
     email: "",
+    avatar: "",
+    user: null
     
   }),
   
@@ -78,9 +90,40 @@ export default {
       this.email = res.data.user.email;
       this.user = res.data.user;
       this.id = res.data.user.id;
+      this.src = "http://45.76.32.59:5011/uploads/" + res.data.user.id + "/avatar" + res.data.user.avatar
+      
     });
 
     
   },
+  methods: {
+    hasAvatar(i) {
+      if (i.avatar == null || i.avatar === undefined) return false;
+      else return true;
+    },
+    auxiliar(i) {
+      return (
+        "http://45.76.32.59:5011/uploads/" +
+        i.id +
+        "/avatar/" +
+        i.avatar
+      );
+    },
+    uploadImage(event) {
+      const url = "http://45.76.32.59:5011/users/image";
+      let data = new FormData();
+      data.append("image", event.target.files[0]);
+      let config = {
+        headers: {
+          "Content-Type": "image/*",
+          Authorization: "Bearer " + this.getToken
+        }
+      };
+      axios.post(url, data, config);
+    },
+     chooseFile() {
+      document.getElementById("fileUpload").click();
+    },
+  }
 };
 </script>

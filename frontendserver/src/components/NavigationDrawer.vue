@@ -59,6 +59,9 @@ export default {
      logged_in : 0
   }),
    methods: {
+     loggedIn(){
+       this.logged_in = 1;
+     },
       showLogin() {
         this.$router.push({ name: "login"});
     },
@@ -86,7 +89,8 @@ export default {
       this.email = res.data.user.email;
       this.user = res.data.user;
       this.id = res.data.user.id;
-      this.logged_in=1
+      this.loggedIn();
+      
     });
 
     

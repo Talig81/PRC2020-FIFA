@@ -41,6 +41,10 @@ router.post('/login', passport.authenticate('local', { session: false }), functi
 
 router.get('/teste',passport.authenticate('jwt', { session: false }), function (req, res){
   res.status(200).jsonp({ user: req.user });
+});
+
+router.post('/image', passport.authenticate('jwt', { session: false }), uploadI.single('image'), function (req, res) {
+  res.status(200).jsonp({ neat: "neat" })
 })
 
 
