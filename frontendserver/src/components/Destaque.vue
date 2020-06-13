@@ -1,18 +1,18 @@
 <template>
-  <div :style="{backgroundColor:'#031927',width:'100%'}">
+  <div :style="{backgroundColor:'#031927',width:'100%',marginRight:'10vh',marginLeft:'-0.2%'}">
           <h1 :style="{color:'white',marginLeft:'5vh',marginTop:'5vh'}">Em Destaque</h1>
           <table>
                 <th>
                <div :style="{backgroundColor:'black',width:'100%',height:'2%'}"></div>
-                <Ouro  v-bind:player ="this.player1" :style="{width:'100%',marginLeft:'3vh',marginTop:'12vh'}"/>
+                <Ouro  v-bind:player ="this.player1" :style="{width:'100%',marginLeft:'33.33%',marginTop:'12vh'}"/>
                 </th>
                 <th>
                 <div :style="{backgroundColor:'black',width:'100%',height:'2%'}"></div>
-                <Ouro  v-bind:player ="this.player2" :style="{width:'100%',marginLeft:'3vh',marginTop:'12vh'}"/>
+                <Ouro  v-bind:player ="this.player2" :style="{width:'100%',marginLeft:'33.33%',marginTop:'12vh'}"/>
                 </th>
                 <th>
                 <div :style="{backgroundColor:'black',width:'100%',height:'2%'}"></div>
-                <Ouro  v-bind:player ="this.player3" :style="{width:'100%',marginLeft:'3vh',marginTop:'12vh'}"/>
+                <Ouro  v-bind:player ="this.player3" :style="{width:'100%',marginLeft:'33.33%',marginTop:'12vh'}"/>
                 </th>
           </table>
         </div>

@@ -1,6 +1,6 @@
 <template>
   <v-app class="theme">
-    <v-content class="colored">
+    <v-content class="colored" >
       <v-app-bar app color="#0B4F6C" dark>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title>FIFA Companion</v-toolbar-title>

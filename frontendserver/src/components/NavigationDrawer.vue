@@ -1,9 +1,9 @@
 <template>
 <div>
-<div :style="{marginBottom:'-5vh',minHeight:'5vh'}">
+<div :style="{marginBottom:'-20%',minHeight:'100%'}">
       <v-btn 
         v-if="this.logged_in==0" 
-          icon :style="{marginLeft:'150vh',marginTop:'-10vh',postion:absolute,zIndex:999,color:'white'}"
+          icon :style="{marginLeft:'150vh',marginTop:'-9vh',postion:fixed,zIndex:999,color:'white'}"
            @click="showLogin"
       >
         <v-icon>mdi-login</v-icon>
@@ -53,7 +53,7 @@ export default {
   data: () => ({
     items: [
       ["mdi-home", "Home","/"],
-      ["mdi-account", "Teams","/teams"],
+      ["mdi-account", "My Teams","/teams"],
       ["mdi-account", "Players","/players"],
     ],
      logged_in : 0
@@ -73,7 +73,6 @@ export default {
 
     ...mapGetters(["getToken"])
   },
-  
     mounted: function() {
     const url = "http://45.76.32.59:5011/users/teste"
     let config = {
@@ -92,9 +91,6 @@ export default {
       this.loggedIn();
       
     });
-
-    
   }
-
 };
 </script>
