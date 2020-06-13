@@ -88,13 +88,8 @@ export default {
       this.email = res.data.user.email;
       this.user = res.data.user;
       this.id = res.data.user.id;
-<<<<<<< HEAD
-      this.logged_in=1
-      this.$router.reload()
-=======
       this.loggedIn();
       
->>>>>>> e68c4c67fcb2ff10f9ce9f9dbb55f14f92b4e168
     });
   }
 };
