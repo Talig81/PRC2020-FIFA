@@ -287,6 +287,30 @@ LIMIT 1`
     }
 }
 
+Players.Search = async function(name){
+    var query = `select ?player
+	where { 
+        ?player a :Player.
+        ?player   :name ?name.
+    	FILTER regex (str(?name), "`+name+`","i"). 
+	} `
+    var encoded = encodeURIComponent(prefixes + query)
+    console.log("here")
+    try{
+	console.log(getLink+encoded)
+        var response = await axios.get(getLink + encoded)
+        console.log(response.data)
+        let r = normalize(response.data)
+        r.map(jogador=> {
+            jogador.player      = jogador.player.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+        }
+        )
+        return r
+    }
+    catch(e){
+        throw(e)
+    }
+}
 
 
 

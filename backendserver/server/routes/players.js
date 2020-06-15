@@ -34,4 +34,12 @@ router.get('/complete/:name', function(req, res, next) {
     .catch(e => res.status(500).send(`Erro na listagem de jogadores: ${e}`))
 });
 
+router.get('/search/:name', function(req, res, next) {
+  console.log(req.params.name)
+  console.log("teste");
+  Players.Search(req.params.name)
+    .then(dados => res.jsonp(dados))
+    .catch(e => res.status(500).send(`Erro na listagem de jogadores: ${e}`))
+});
+
 module.exports = router;
