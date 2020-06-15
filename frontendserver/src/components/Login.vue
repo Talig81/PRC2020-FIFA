@@ -65,9 +65,8 @@ export default {
           switch (response.status) {
             case 200:
               this.setToken(response.data.token);
- 
-
-              this.$router.push("/profile");
+              //this.$router.push("/profile");
+              window.location.href = 'http://localhost:8080/profile'
               break;
             default:
               this.$router.push("/login");
