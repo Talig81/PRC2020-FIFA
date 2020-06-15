@@ -6,8 +6,8 @@
     </div>
 
   </v-row>
-  <v-row :style="{width:'10%',marginTop:'3vh'}">
-     <v-text-field label="Team name" v-model="team_name" name="email" :rules="rules" hide-details="auto"></v-text-field>
+  <v-row :style="{width:'20%',marginTop:'3vh',marginLeft:'0.5vh'}">
+     <v-text-field label="Team name" v-model="team_name" name="team_name" :rules="rules" hide-details="auto"></v-text-field>
   </v-row>
   <v-row :style="{width:'100%',marginTop:'3vh'}">
       <div :style="{width:'100%'}">
@@ -102,6 +102,11 @@
     </template>
   </v-data-table>
   </div>
+  </v-row>
+  <v-row>
+    <v-btn :style="{marginTop:'3vh',marginLeft:'0.5vh'}" class="btn btn-primary" @click="createTeam" @keyup.enter="searchProducts" type="button">
+                        Create Team
+                    </v-btn>
   </v-row>
 </v-container>
 
@@ -217,11 +222,19 @@ import { mapGetters } from "vuex";
         };
         axios.get(url, config).then(res => {
           this.dropdown_players = res.data;
-          console.log(this.dropdown_players)
+          let r=this.dropdown_players.map((obj)=>obj.player.toString())
+          this.dropdown_players=r
+          console.log(r)
           for(let i=0;i<10;i++){
           console.log(this.dropdown_players[i].__ob__.value.player)
           }
     });
+    },
+    createTeam(){
+      console.log("create team")
+      console.log(this.team_name)
+      console.log(this.desserts[0].name)
+      //falta mandar o pedido para o backend com as infos
     }
   }
   }
