@@ -19,7 +19,6 @@ router.post('/register', function (req, res, next) {
         var dir = './uploads/' + v.id
         fs.mkdir(dir,function(error,cena){
         });
-        
         res.status(200).jsonp(v);
       })
         .catch(err => {
