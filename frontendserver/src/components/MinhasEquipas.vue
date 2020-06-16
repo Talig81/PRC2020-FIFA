@@ -51,7 +51,7 @@
 </template>
 
 <script>
-
+import axios from "axios";
 
   export default {
     props: {
@@ -59,9 +59,40 @@
     },
     data: () => ({
       drawer: null,
+      items:[],
+      headers: [
+        { text: "Player", value: "player" },
+        {
+          text: "Name",
+          align: "start",
+          sortable: false,
+          value: "name"
+        },
+        { text: "Overall", value: "overall" },
+        { text: "Club", value: "club" },
+        { text: "Position", value: "position" },
+        { text: "Nationality", value: "nationality" },
+        { text: "Quality", value: "quality" },
+        { text: "Age", value: "age" },
+        { text: "Foot", value: "foot" },
+        { text: "Actions", value: "actions", sortable: false }
+      ],
+      
     }),
      components: {
       
+  },
+  mounted: () =>{
+    
+    const url = "http://45.76.32.59:5011/users/myTeam"
+    let config = {
+      headers: {
+        Authorization: "Bearer " + this.getToken
+      }
+    };
+    axios.get(url, config).then(res => {
+      console.log(res.data)
+    });
   },
     methods: {
      create () {

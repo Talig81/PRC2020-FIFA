@@ -432,13 +432,14 @@ import axios from "axios";
         },
      mounted: function() {
     console.log("param" +this.player_name)
-    const url = "http://localhost:5011/players/complete/"+this.player_name;
+    const url = "http://45.76.32.59:5011/players/complete/"+this.player_name;
     let config = {
       headers: {
         Authorization: "Bearer " + this.getToken
       }
     };
     axios.get(url, config).then(res => {
+      console.log("un  d  "+res.data.user)
       this.player1 = res.data;
       console.log(this.player1)
     });

@@ -9,6 +9,7 @@ var userSchema = new mongoose.Schema({
     bio: String,
     avatar:  String,
     fav_team: String,
+    players: [String]
 })
 
 module.exports = mongoose.model('users', userSchema)

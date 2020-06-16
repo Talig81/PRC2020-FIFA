@@ -14,7 +14,10 @@ router.get('/teste', function(req, res, next) {
 router.get('/simple', function(req, res, next) {
   console.log("teste");
   Players.getSimple()
-    .then(dados => res.jsonp(dados))
+    .then(dados => {
+      console.log("dados -> " + dados)
+      res.jsonp(dados)
+    })
     .catch(e => res.status(500).send(`Erro na listagem de jogadores: ${e}`))
 });
 
