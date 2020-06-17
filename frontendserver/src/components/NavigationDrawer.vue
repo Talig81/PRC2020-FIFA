@@ -1,26 +1,35 @@
 <template>
 <div>
-<div :style="{marginBottom:'-20%',minHeight:'100%'}">
+<div :style="{marginBottom:'-19%',minHeight:'100%'}">
       <v-btn 
         v-if="this.logged_in==0" 
-          icon :style="{marginLeft:'150vh',marginTop:'-9vh',postion:fixed,zIndex:999,color:'white'}"
+          icon :style="{marginLeft:'150vh',marginTop:'-12vh',postion:fixed,zIndex:999,color:'white'}"
            @click="showLogin"
       >
         <v-icon>mdi-login</v-icon>
         Login
       </v-btn>
 
-      <v-btn  
-        v-if="this.logged_in==0" 
-          icon  :style="{marginLeft:'165vh',marginTop:'-15vh',postion:absolute,zIndex:999,color:'white'}"
+      <v-btn
+        v-if="this.logged_in==0"
+          icon  :style="{marginLeft:'165vh',marginTop:'-18vh',postion:absolute,zIndex:999,color:'white'}"
            @click="showRegister"
       >
         <v-icon>mdi-pencil-plus-outline</v-icon>
         Register
       </v-btn>
+      <v-btn
+        v-if="this.logged_in==1"
+          icon  :style="{marginLeft:'165vh',marginTop:'-10vh',postion:absolute,zIndex:999,color:'white'}"
+           @click="logout"
+      >
+        <v-icon>mdi-exit-to-app</v-icon>
+        Logout
+      </v-btn>
     </div>
     <v-navigation-drawer
       dark
+      color="#0B4F6C" 
       clipped
       permanent
     >
@@ -47,7 +56,7 @@
 
 <script>
 import axios from "axios";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   data: () => ({
@@ -67,11 +76,16 @@ export default {
     },
     showRegister() {
         this.$router.push({ name: "registar"});
+    },
+    logout() {
+        this.removeToken;
+        window.location.href = 'http://localhost:8080'
     }
     },
     computed: {
 
-    ...mapGetters(["getToken"])
+    ...mapGetters(["getToken"]),
+      ...mapMutations(["removeToken"])
   },
     mounted: function() {
     const url = "http://45.76.32.59:5011/users/teste"

@@ -16,7 +16,7 @@
           </v-col>
         </v-row>
       </v-container>
-      <v-footer color="#0B4F6C" app>
+      <v-footer color="#031927" app>
         <span class="white--text" :style="{marginLeft:'30vh'}">&copy;Produced by Tiago Baptista and Manuel Moreno</span>
       </v-footer>
     </v-content>

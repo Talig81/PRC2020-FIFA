@@ -50,15 +50,15 @@
                       id="editedItem.name"
                       label="Player"
                       name="editedItem.name"
-                      prepend-icon="mdi-email"
+                      prepend-icon="mdi-soccer"
                       type="text"
                     />
                 <div class="input-group-append">
-                    <v-btn class="btn btn-primary" @click="searchPlayer" @keyup.enter="searchProducts" type="button">
+                    <v-btn  :style="{marginLeft:'4vh'}"  class="btn btn-primary" @click="searchPlayer" @keyup.enter="searchProducts" type="button">
                         Search
                     </v-btn>
                 </div>
-                <div>
+                <div :style="{marginTop:'5vh'}">
                    <v-overflow-btn
                   class="my-2"
                   :items="dropdown_players"
