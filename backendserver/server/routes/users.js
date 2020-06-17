@@ -5,6 +5,7 @@ const fs = require('fs')
 var express = require('express');
 var router = express.Router();
 var Users = require('../controllers/users')
+var Players = require('../controllers/players')
 
 const privateKey = fs.readFileSync('./keys/privatekey.key', 'utf-8')
 
@@ -44,7 +45,24 @@ router.get('/teste',passport.authenticate('jwt', { session: false }), function (
 
 router.post('/image', passport.authenticate('jwt', { session: false }), uploadI.single('image'), function (req, res) {
   res.status(200).jsonp({ neat: "neat" })
+});
+
+router.post('/addPlayer',passport.authenticate('jwt', { session: false }),function (req, res) {
+  Users.addPlayer(req.body.playerName,req.user).then(dados=>{
+    res.status(200).jsonp(dados);
+  }).catch(err =>{
+    res.status(500).jsonp(err);
+  })
 })
 
+router.get('/myTeam',passport.authenticate('jwt', { session: false }),function (req, res) {
+  var list = [];
+  
+  for (var i = 0, len = req.user.players.length; i < len; i++) {
+    Players.getSimpleName(req.user.players[i]).then(dados => list.push.dados);
+  }
+  console.log("pqpqpqpqpqpqppq");
+  res.status(200).jsonp(list);
+})
 
 module.exports = router;

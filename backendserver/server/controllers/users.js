@@ -13,6 +13,12 @@ module.exports.addUser = user => {
     return novo.save();
 }
 
+module.exports.addPlayer = (player,user) =>{
+
+    user.players.push(player);
+    return user.save();
+}
+
 module.exports.changeAvatar = (id, path) => {
     return Users.update({ id: id }, { avatar: path }).exec()
 }

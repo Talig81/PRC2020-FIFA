@@ -62,8 +62,10 @@ export default {
   data: () => ({
     items: [
       ["mdi-home", "Home","/"],
-      ["mdi-account", "My Teams","/teams"],
-      ["mdi-account", "Players","/players"],
+      ["mdi-home", "Home","/"],
+      ["mdi-account", "Profile","/profile"],
+      ["mdi-soccer", "My Teams","/teams"],
+      ["mdi-account-multiple-plus", "Players","/players"],
     ],
      logged_in : 0
   }),
