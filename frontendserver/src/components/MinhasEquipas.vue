@@ -51,12 +51,55 @@
 </template>
 
 <script>
+
+import { mapGetters } from "vuex";
 import axios from "axios";
 
   export default {
     props: {
       source: String,
     },
+    mounted: function () {
+    const url1 = "http://45.76.32.59:5011/users/teste"
+    let config1 = {
+      headers: {
+        Authorization:
+          "Bearer " +
+          this.getToken
+      }
+    };
+    axios.get(url1, config1).then(res => {
+        console.log(res.data);
+      this.id = res.data.user.id;
+       console.log("montado" + this.id)
+    });
+
+    const url = "http://localhost:5011/teams/personalTeam/"+this.id
+    let config = {
+      headers: {
+        Authorization:
+          "Bearer " +
+          this.getToken
+      }
+    };
+    axios.get(url, config).then(res => {
+        console.log(res.data);
+    });
+
+   
+
+  },
+  computed: {
+      formTitle () {
+        return this.editedIndex === -1 ? 'New Player' : 'Edit Player'
+      },
+      ...mapGetters(["getToken"])
+    },
+    methods: {
+     create () {
+        this.$router.push({ name: "criar_equipas"});
+    }
+  },
     data: () => ({
       drawer: null,
       items:[],
@@ -82,22 +125,6 @@ import axios from "axios";
      components: {
       
   },
-  mounted: () =>{
-    
-    const url = "http://45.76.32.59:5011/users/myTeam"
-    let config = {
-      headers: {
-        Authorization: "Bearer " + this.getToken
-      }
-    };
-    axios.get(url, config).then(res => {
-      console.log(res.data)
-    });
-  },
-    methods: {
-     create () {
-        this.$router.push({ name: "criar_equipas"});
-    }
-  }
+  
   }
 </script>

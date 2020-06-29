@@ -1,10 +1,10 @@
 var PTeams = require('../models/pTeams')
 
-module.exports.getTeam = id =>{
-    return PTeams.findOne({id: id}).exec();
+module.exports.getTeamUser = id =>{
+    return PTeams.find({userId: id}).exec();
 }
 
 module.exports.addTeam = team =>{
-    var novo = new PTeams(team);
-    return novo.save();
+    return PTeams
+        .create(team).exec()
 }
