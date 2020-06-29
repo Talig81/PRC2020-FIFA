@@ -70,11 +70,10 @@ import axios from "axios";
     };
     axios.get(url1, config1).then(res => {
         console.log(res.data);
-      this.id = res.data.user.id;
-       console.log("montado" + this.id)
-    });
-
-    const url = "http://localhost:5011/teams/personalTeam/"+this.id
+        this.id = res.data.user.id;
+        console.log("montado" + this.id)
+         const url = "http://localhost:5011/teams/personalTeam/"+this.id
+    console.log(url)
     let config = {
       headers: {
         Authorization:
@@ -83,8 +82,11 @@ import axios from "axios";
       }
     };
     axios.get(url, config).then(res => {
-        console.log(res.data);
+        console.log("montado2" + res.data[0].name);
     });
+    });
+
+   
 
    
 
@@ -101,6 +103,7 @@ import axios from "axios";
     }
   },
     data: () => ({
+      id:'',
       drawer: null,
       items:[],
       headers: [
@@ -124,7 +127,7 @@ import axios from "axios";
     }),
      components: {
       
-  },
+  }
   
   }
 </script>

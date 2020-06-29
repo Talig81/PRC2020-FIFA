@@ -5,11 +5,11 @@ const fs = require('fs')
 var express = require('express');
 var router = express.Router();
 var TeamsController = require('../controllers/pTeams')
-var Team = require('../controllers/pTeams')
+var Team = require('../models/pTeams')
 
-router.get('/personalTeam/:id',passport.authenticate('jwt', { session: false }),function (req, res) {
+router.get('/personalTeam/:id',function (req, res) {
   console.log("aqui")
-  Team.getTeamUser(id)
+  TeamsController.getTeamUser(req.params.id)
   .then(dados => {
     console.log("dados -> " + dados)
     res.jsonp(dados)
@@ -29,7 +29,7 @@ console.log(req.body.players)
 console.log(req.body.price)
 console.log(req.body.platform)
 
-const new_team = new Team ({
+const newTeam = new Team ({ 
   name : req.body.name,
   userId : req.body.userId,
   players : req.body.players,
@@ -37,7 +37,7 @@ const new_team = new Team ({
   platform : req.body.platform
 })
 
-TeamsController.addTeam(new_team)
+TeamsController.addTeam(newTeam)
                 .then((dados) => {
                     console.log("Equipa criada")
                     res.status(201).jsonp(dados)
