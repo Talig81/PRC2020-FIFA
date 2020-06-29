@@ -1,6 +1,6 @@
 <template>
 <div>
-<div :style="{marginBottom:'-19%',minHeight:'100%'}">
+<div :style="{marginBottom:'-20%',minHeight:'100%'}">
       <v-btn 
         v-if="this.logged_in==0" 
           icon :style="{marginLeft:'150vh',marginTop:'-12vh',postion:fixed,zIndex:999,color:'white'}"
@@ -61,7 +61,7 @@ import { mapGetters, mapMutations } from "vuex";
 export default {
   data: () => ({
     items: [
-      ["mdi-home", "Home","/"],
+      ["", "","/"],
       ["mdi-home", "Home","/"],
       ["mdi-account", "Profile","/profile"],
       ["mdi-soccer", "My Teams","/teams"],

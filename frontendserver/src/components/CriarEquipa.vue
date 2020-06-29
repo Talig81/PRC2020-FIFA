@@ -4,9 +4,18 @@
     <div :style="{backgroundColor:'#031927',width:'100%',height:'55%',marginTop:'5vh',color:'white'}">
         <b><p :style="{ marginLeft : '5%',marginTop:'0.7%'}">Create a Team</p></b>
     </div>
-
   </v-row>
-  <v-row :style="{width:'20%',marginTop:'3vh',marginLeft:'0.5vh'}">
+  <v-row>
+    <v-col class="d-flex" cols="6" sm="3">
+        <v-select
+          :items="consoles"
+          label="Select platform"
+          solo
+          v-model="selected_console"
+        ></v-select>
+      </v-col>
+  </v-row>
+  <v-row :style="{width:'20%',marginLeft:'0.5vh'}">
      <v-text-field label="Team name" v-model="team_name" name="team_name" :rules="rules" hide-details="auto"></v-text-field>
   </v-row>
   <v-row :style="{width:'100%',marginTop:'3vh'}">
@@ -53,6 +62,9 @@
                       prepend-icon="mdi-soccer"
                       type="text"
                     />
+                   </v-col>
+
+                  
                 <div class="input-group-append">
                     <v-btn  :style="{marginLeft:'4vh'}"  class="btn btn-primary" @click="searchPlayer" @keyup.enter="searchProducts" type="button">
                         Search
@@ -66,10 +78,12 @@
                   editable
                   item-value="player"
                   v-model="editedItem.name"
+                  
                   ></v-overflow-btn>
                 </div>
-                  </v-col>
+                 
                 </v-row>
+
               </v-container>
             </v-card-text>
 
@@ -104,6 +118,9 @@
   </div>
   </v-row>
   <v-row>
+    <p> Total price : {{this.total}}</p>
+  </v-row>
+  <v-row>
     <v-btn :style="{marginTop:'3vh',marginLeft:'0.5vh'}" class="btn btn-primary" @click="createTeam" @keyup.enter="searchProducts" type="button">
                         Create Team
                     </v-btn>
@@ -136,12 +153,29 @@ import { mapGetters } from "vuex";
       this.id = res.data.user.id;
       this.loggedIn();
     });
+     const url1 = "http://45.76.32.59:5011/users/teste"
+    let config1 = {
+      headers: {
+        Authorization:
+          "Bearer " +
+          this.getToken
+      }
+    };
+    axios.get(url1, config1).then(res => {
+        console.log(res.data);
+      this.id = res.data.user.id;
+    });
   },
     initialize () {
         this.desserts = []
     },
     data: () => ({
+      index: 0,
+      prices : [],
+      total:0,
       editedIndex: -1,
+      consoles: ['Playstation', 'Xbox', 'PC - Origin'],
+      selected_console : '',
       headers: [
         {
           text: 'Player name',
@@ -149,16 +183,16 @@ import { mapGetters } from "vuex";
           sortable: false,
           value: 'name',
         },
-        { text: 'Team', value: 'team' },
-        { text: 'Nationality', value: 'nationality' },
-        { text: 'Overall', value: 'overall' },
+        {
+          text: 'Price',
+          align: 'start',
+          sortable: false,
+          value: 'price',
+        },
         { text: 'Actions', value: 'actions', sortable: false },
       ],
       editedItem: {
         name: '',
-        nationality: '',
-        overall: '',
-        team: '',
       },
       drawer: null,
       dropdown_players: [
@@ -197,10 +231,18 @@ import { mapGetters } from "vuex";
       },
       save () {
         if (this.editedIndex > -1) {
+          console.log(this.editedIndex)
+          this.editedItem.price = this.prices[this.editedIndex]
           Object.assign(this.desserts[this.editedIndex], this.editedItem)
         } else {
+          this.editedItem.price = this.prices[this.dropdown_players.indexOf(this.editedItem.name)]
           this.desserts.push(this.editedItem)
+          this.total = this.total + parseInt(this.editedItem.price)
+          console.log("indice" + this.dropdown_players.findIndex((value)=>{ value == this.editedItem.name }))
+          console.log("nome" + this.editedItem.name)
         }
+        console.log("selecionado" + this.selected)
+
         this.close()
       },
     editItem (item) {
@@ -214,27 +256,52 @@ import { mapGetters } from "vuex";
         confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
       },
       searchPlayer(){
-        const url = "http://localhost:5011/players/search/"+this.editedItem.name;
+        const url = "http://localhost:5011/players/search/"+this.editedItem.name+'/'+this.selected_console;
         let config = {
           headers: {
             Authorization: "Bearer " + this.getToken
           }
         };
         axios.get(url, config).then(res => {
+          this.aux = res.data;
           this.dropdown_players = res.data;
           let r=this.dropdown_players.map((obj)=>obj.player.toString())
+          this.prices = this.dropdown_players.map((obj)=>obj.price)
+          console.log("aqui" + this.prices)
           this.dropdown_players=r
-          console.log(r)
-          for(let i=0;i<10;i++){
-          console.log(this.dropdown_players[i].__ob__.value.player)
-          }
     });
     },
     createTeam(){
       console.log("create team")
       console.log(this.team_name)
       console.log(this.desserts[0].name)
+      console.log(this.selected_console)
       //falta mandar o pedido para o backend com as infos
+      let config = {
+          headers: {
+            Authorization: "Bearer " + this.getToken
+          }
+        };
+      axios.post('http://localhost:5011/teams/addTeam', {
+
+                    name: this.team_name,
+                    userId: this.id,
+                    players:this.desserts,
+                    price:this.total,
+                    platform : this.selected_console
+                },config)
+
+                .then(function (response) {
+
+                    console.log(response.data);
+
+                })
+
+                .catch(function (error) {
+
+                    console.log("Erro ao adicionar a equipa" + error)
+
+                });
     }
   }
   }

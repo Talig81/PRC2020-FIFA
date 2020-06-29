@@ -338,11 +338,67 @@ LIMIT 1`
     }
 }
 
-Players.Search = async function(name){
-    var query = `select ?player
+Players.Searchxbox = async function(name){
+    var query = `select ?player ?price
 	where { 
         ?player a :Player.
         ?player   :name ?name.
+        ?player	:hasPrice ?ps.
+        ?ps	:xbox_price_last ?price.
+    	FILTER regex (str(?name), "`+name+`","i"). 
+	} `
+    var encoded = encodeURIComponent(prefixes + query)
+    console.log("here")
+    try{
+	console.log(getLink+encoded)
+        var response = await axios.get(getLink + encoded)
+        console.log(response.data)
+        let r = normalize(response.data)
+        r.map(jogador=> {
+            jogador.player      = jogador.player.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+        }
+        )
+        return r
+    }
+    catch(e){
+        throw(e)
+    }
+}
+
+Players.Searchpc = async function(name){
+    var query = `select ?player ?price
+	where { 
+        ?player a :Player.
+        ?player   :name ?name.
+        ?player	:hasPrice ?ps.
+        ?ps	:pc_price_last ?price.
+    	FILTER regex (str(?name), "`+name+`","i"). 
+	} `
+    var encoded = encodeURIComponent(prefixes + query)
+    console.log("here")
+    try{
+	console.log(getLink+encoded)
+        var response = await axios.get(getLink + encoded)
+        console.log(response.data)
+        let r = normalize(response.data)
+        r.map(jogador=> {
+            jogador.player      = jogador.player.replace("http://www.di.uminho.pt/prc2020/2020/1/fut#","")
+        }
+        )
+        return r
+    }
+    catch(e){
+        throw(e)
+    }
+}
+
+Players.Searchps = async function(name){
+    var query = `select ?player ?price
+	where { 
+        ?player a :Player.
+        ?player   :name ?name.
+        ?player	:hasPrice ?ps.
+        ?ps	:ps_price_last ?price.
     	FILTER regex (str(?name), "`+name+`","i"). 
 	} `
     var encoded = encodeURIComponent(prefixes + query)
