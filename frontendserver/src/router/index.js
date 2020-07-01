@@ -9,6 +9,7 @@ import Jogadores from '../components/ListaJogadores.vue';
 import ConsultarJogador from '../components/PaginaJogador.vue'
 import Perfil from '../components/Perfil.vue'
 import MinhasEquipas from '../components/MinhasEquipas.vue'
+import Field from '../components/Field.vue'
 
 
 Vue.use(Router);
@@ -60,6 +61,11 @@ export default new Router({
       path: '/teams',
       name: 'teams',
       component: MinhasEquipas
+    },
+    {
+      path: '/field',
+      name: 'field',
+      component: Field
     }
   ]
 });
