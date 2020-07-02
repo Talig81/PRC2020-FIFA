@@ -7,3 +7,7 @@ module.exports.getTeamUser = (userId) =>{
 module.exports.addTeam = (team) =>{
     return team.save();
 }
+
+module.exports.addPlayer = (player,teamid) => {
+    
+}

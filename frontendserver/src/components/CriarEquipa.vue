@@ -256,7 +256,7 @@ import { mapGetters } from "vuex";
         confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
       },
       searchPlayer(){
-        const url = "http://localhost:5011/players/search/"+this.editedItem.name+'/'+this.selected_console;
+        const url = "http://45.76.32.59:5011/players/search/"+this.editedItem.name+'/'+this.selected_console;
         let config = {
           headers: {
             Authorization: "Bearer " + this.getToken
@@ -282,7 +282,7 @@ import { mapGetters } from "vuex";
             Authorization: "Bearer " + this.getToken
           }
         };
-      axios.post('http://localhost:5011/teams/addTeam', {
+      axios.post('http://45.76.32.59:5011/teams/addTeam', {
 
                     name: this.team_name,
                     userId: this.id,
