@@ -41,4 +41,10 @@ router.post('/create',/*passport.authenticate('jwt', { session: false }),*/funct
     })
     })
 
+router.get('/list/:name', function(req, res, next) {
+  
+      LeagueController.getLeague(req.params.name)
+        .then(dados => res.jsonp(dados))
+        .catch(e => res.status(500).send(`Erro na listagem de ligas: ${e}`))
+    });
 module.exports = router;
