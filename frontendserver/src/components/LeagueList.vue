@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import VueDraggableResizable from "vue-draggable-resizable";
+
 
 export default {
   data() {
@@ -32,7 +32,7 @@ export default {
     };
   },
   components: {
-    VueDraggableResizable
+   
   },
   methods: {}
 };

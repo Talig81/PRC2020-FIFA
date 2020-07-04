@@ -13,6 +13,7 @@ import Field from '../components/Field.vue'
 import Equipa from '../components/Equipa.vue'
 import Ranking from '../components/Ranking.vue'
 import League from '../components/League.vue'
+import LeagueList from '../components/LeagueList.vue'
 import store from '../store/modules/token';
 
 Vue.use(Router);
@@ -97,7 +98,13 @@ export default new Router({
     }
     ,
     {
-      path: '/league',
+      path: '/leagueList',
+      name: 'leaguelist',
+      component: LeagueList,
+      beforeEnter: isAuthenticated
+    },
+    {
+      path: '/league/:name',
       name: 'league',
       component: League,
       beforeEnter: isAuthenticated

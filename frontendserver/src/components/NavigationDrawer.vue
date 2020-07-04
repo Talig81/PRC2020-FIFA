@@ -68,7 +68,7 @@ export default {
       ["mdi-account-multiple-plus", "Players","/players"],
       ["mdi-soccer-field", "Field","/field"],
       ["mdi-seal  -variant", "Ranking","/ranking"],
-      ["mdi-seal  -variant", "League","/league"],
+      ["mdi-seal  -variant", "League","/leagueList"],
     ],
      logged_in : 0
   }),
