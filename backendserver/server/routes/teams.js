@@ -61,4 +61,13 @@ TeamsController.addTeam(newTeam)
 })
 })
 
+router.get('/getAllTeams',function (req, res) {
+  TeamsController.getAllTeams()
+  .then(dados => {
+    console.log("dados -> " + dados.name)
+    res.jsonp(dados)
+  })
+  .catch(e => res.status(500).send(`Erro na listagem de equipas: ${e}`))
+})
+
 module.exports = router;

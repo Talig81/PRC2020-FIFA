@@ -4,7 +4,7 @@ Pendentes :
 		(b) adicionar a rota e controlador para dar update das informações de um user ;
 		(c) adicionar o rating de ataque da equipa nos models e no controller ; (DONE!)
 		(d) adicionar o rating de defesa da equipa nos models e no controller ; (DONE!)
-		(e) alterar 
+		(e) adicionar rota de get para todas as equipas 
 
 	2 - FrontEnd :
 		(a) acabar página de perfil ; (DONE!)

@@ -73,7 +73,7 @@ import axios from "axios";
     };
     axios.get(url1, config1).then(res => {
         this.id = res.data.user.id;
-         const url = "http://localhost:5011/teams/personalTeam/"+this.id
+         const url = "http://localhost:5011/teams/getAllTeams"
     let config = {
       headers: {
         Authorization:
@@ -83,6 +83,7 @@ import axios from "axios";
     };
     axios.get(url, config).then(res => {
         this.items=res.data
+        console.log(this.items)
     });
     });
   },

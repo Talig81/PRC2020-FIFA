@@ -15,3 +15,7 @@ module.exports.addTeam = (team) =>{
 module.exports.addPlayer = (player,teamid) => {
     
 }
+
+module.exports.getAllTeams = () =>{
+    return PTeams.find().exec();
+}
