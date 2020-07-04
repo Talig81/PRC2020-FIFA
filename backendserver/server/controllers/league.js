@@ -11,3 +11,8 @@ module.exports.addLeague = (league) =>{
 module.exports.getList = () =>{
     return League.find().exec();
 }
+
+module.exports.addTeam = (name, teamId) => {
+    return Post
+        .updateOne({name: name}, {$push: {teams: teamId}})
+}

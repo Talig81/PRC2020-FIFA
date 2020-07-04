@@ -70,4 +70,14 @@ router.get('/getAllTeams',function (req, res) {
   .catch(e => res.status(500).send(`Erro na listagem de equipas: ${e}`))
 })
 
+router.get('/getById/:id',function (req, res) {
+
+  TeamsController.getById(req.params.id)
+  .then(dados => {
+    console.log("dados -> " + dados)
+    res.jsonp(dados)
+  })
+  .catch(e => res.status(500).send(`Erro na listagem de equipas: ${e}`))
+  })
+
 module.exports = router;

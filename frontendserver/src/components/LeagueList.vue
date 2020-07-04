@@ -21,10 +21,9 @@
       >
         <template v-slot:item.actions="{ item }">
           <v-icon small class="mr-2" @click="editItem(item)">mdi-eye</v-icon>
-          <v-icon small class="mr-2" @click="addPlayer(item)">mdi-account-plus</v-icon>
         </template>
         <template v-slot:no-data>
-          <v-btn color="primary" @click="show_details">Reset</v-btn>
+          <p>Empty</p>
         </template>
       </v-data-table>
     </v-card>
@@ -55,8 +54,8 @@ export default {
   methods: {
     editItem(item) {
       this.$router.push({
-        name: "consultar_jogador",
-        params: { player: item.player }
+        name: "league",
+        params: { name: item.name }
       });
     },
     addPlayer(item) {
