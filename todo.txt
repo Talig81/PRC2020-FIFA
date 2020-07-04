@@ -18,10 +18,11 @@ Pendentes :
 		(i) confirmar que as pesquisas estão todas a funcionar 
 		(j) depois de criar uma equipa redirecionar para a lista de equipas (DONE!)
 		(k) adicionar a tabela dos jogadores na criação de equipa o rating de ataque e defesa (DONE!)
+		(l) adicionar a verificação que estamos loggados para cada rota (DONE!)
 
 Notas :
 
-Para calcular o rating atacante de um player  : (pac + drib + shot)/3
-Para calcular o rating defensivo de um player : (def + pass + drib)/3
-Para calcular o rating atacante de uma team   : media da soma dos players
-Para calcular o rating defensivo de uma team  : media da soma dos players
+Para calcular o rating atacante de um player  : (pac + drib + shot)/3 (DONE!)
+Para calcular o rating defensivo de um player : (def + pass + drib)/3 (DONE!)
+Para calcular o rating atacante de uma team   : media da soma dos players (DONE!)
+Para calcular o rating defensivo de uma team  : media da soma dos players (DONE!)
