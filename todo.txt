@@ -4,7 +4,14 @@ Pendentes :
 		(b) adicionar a rota e controlador para dar update das informações de um user ;
 		(c) adicionar o rating de ataque da equipa nos models e no controller ; (DONE!)
 		(d) adicionar o rating de defesa da equipa nos models e no controller ; (DONE!)
-		(e) adicionar rota de get para todas as equipas 
+		(e) adicionar rota de get para todas as equipas (DONE!)
+		(f) criar models e controllers para as ligas
+		(g) criar rotas para a liga:
+				-> criar jornada;
+				-> adicionar jogo à jornada;
+				-> criar nova liga (no fim do ano);
+				-> adicionar resultado a um jogo da jornada;
+				-> simular todos os jogos da jornada ;
 
 	2 - FrontEnd :
 		(a) acabar página de perfil ; (DONE!)

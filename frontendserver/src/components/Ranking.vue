@@ -122,9 +122,9 @@ import axios from "axios";
           value: "name"
         },
         { text: "Platform", value: "platform" },
-        { text: "Owner", value: "atck" },
+        { text: "Owner", value: "userId" },
         { text: "Price", value: "price" },
-        { text: "Points", value: "defense" }
+        { text: "Points", value: "points" }
       ],
     }),
      components: {

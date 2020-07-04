@@ -336,8 +336,8 @@ import { mapGetters } from "vuex";
                     players:this.desserts,
                     price:this.total,
                     platform : this.selected_console,
-                    atck: this.atc,
-                    defense:this.defes
+                    atck: this.atc/this.count,
+                    defense:this.defes/this.count
                 },config)
 
                 .then(function (response) {

@@ -50,16 +50,16 @@ Players.getLista = async function(){
 Players.getSimple = async function(){
     var query = `select ?player ?name ?age ?birth ?club ?position ?foot ?nationality ?quality ?overall where { 
         ?player a :Player.
-        ?player  :age ?age.
-        ?player  :birth_date ?birth.
-        ?player  :hasClub ?club.
-        ?player  :hasPosition ?position.
-        ?player  :hasFoot ?foot.
-        ?player  :hasNationality ?nationality.
-        ?player  :hasQuality ?quality.
+        OPTIONAL {?player  :age ?age}.
+        OPTIONAL {?player  :birth_date ?birth}.
+        OPTIONAL {?player  :hasClub ?club}.
+        OPTIONAL {?player  :hasPosition ?position}.
+        OPTIONAL {?player  :hasFoot ?foot}.
+        OPTIONAL {?player  :hasNationality ?nationality}.
+        OPTIONAL {?player  :hasQuality ?quality}.
         ?player  :name ?name.
-        ?player  :overall ?overall.
-    } limit 1000`
+        OPTIONAL { ?player  :overall ?overall}.
+    } LIMIT 10000`
     var encoded = encodeURIComponent(prefixes + query)
     console.log("here")
     try{
