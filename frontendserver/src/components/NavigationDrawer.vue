@@ -61,13 +61,14 @@ import { mapGetters, mapMutations } from "vuex";
 export default {
   data: () => ({
     items: [
-      ["", "","/s"],
+      ["", "",""],
       ["mdi-home", "Home","/"],
       ["mdi-account", "Profile","/profile"],
       ["mdi-soccer", "My Teams","/teams"],
       ["mdi-account-multiple-plus", "Players","/players"],
       ["mdi-soccer-field", "Field","/field"],
-      ["mdi-seal  -variant", "Ranking","/dfd"],
+      ["mdi-seal  -variant", "Ranking","/ranking"],
+      ["mdi-seal  -variant", "League","/leagueList"],
     ],
      logged_in : 0
   }),

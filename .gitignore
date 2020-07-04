@@ -15,3 +15,7 @@ yarn-error.log*
 *.py
 
 
+#
+passwords.txt
+pexpect_rsync.py
+

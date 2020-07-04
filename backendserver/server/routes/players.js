@@ -39,12 +39,12 @@ router.get('/complete/:name', function(req, res, next) {
 
 router.get('/search/:name/:platform', function(req, res, next) {
   switch(req.params.platform){
-    case 'pc':
+    case 'PC - Origin':
       Players.Searchpc(req.params.name)
       .then(dados => res.jsonp(dados))
       .catch(e => res.status(500).send(`Erro na listagem de jogadores: ${e}`))
       break;
-    case 'xbox':
+    case 'Xbox':
       Players.Searchxbox(req.params.name)
       .then(dados => res.jsonp(dados))
       .catch(e => res.status(500).send(`Erro na listagem de jogadores: ${e}`))

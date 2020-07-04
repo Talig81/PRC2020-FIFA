@@ -117,9 +117,21 @@
   </v-data-table>
   </div>
   </v-row>
+  
   <v-row>
-    <p> Total price : {{this.total}}</p>
+     <div :style="{backgroundColor:'#031927',width:'100%',height:'55%',marginTop:'5vh',color:'white'}">
+    <p :style="{marginLeft:'2%',marginTop:'2%'}"> Total price : {{this.total}}</p>
+    <div v-if="this.count>0">
+       <p :style="{marginLeft:'2%',marginTop:'2%'}"> Defensive Rating : {{this.defes/this.count}}</p>
+      <p :style="{marginLeft:'2%',marginTop:'2%'}"> Ofensive Rating : {{this.atc/this.count}}</p>
+    </div>
+    <div v-else>
+       <p :style="{marginLeft:'2%',marginTop:'2%'}"> Defensive Rating : 0</p>
+      <p :style="{marginLeft:'2%',marginTop:'2%'}"> Ofensive Rating : 0</p>
+    </div>
+     </div>
   </v-row>
+
   <v-row>
     <v-btn :style="{marginTop:'3vh',marginLeft:'0.5vh'}" class="btn btn-primary" @click="createTeam" @keyup.enter="searchProducts" type="button">
                         Create Team
@@ -170,8 +182,17 @@ import { mapGetters } from "vuex";
         this.desserts = []
     },
     data: () => ({
+      count:0,
+      atc:0,
+      defes:0,
       index: 0,
       prices : [],
+      drib: [],
+      def: [],
+      shot: [],
+      pass: [],
+      pac:[],
+      phys:[],
       total:0,
       editedIndex: -1,
       consoles: ['Playstation', 'Xbox', 'PC - Origin'],
@@ -188,6 +209,18 @@ import { mapGetters } from "vuex";
           align: 'start',
           sortable: false,
           value: 'price',
+        },
+        {
+          text: 'Defensive rating',
+          align: 'start',
+          sortable: false,
+          value: 'defense',
+        },
+        {
+          text: 'Atacking rating',
+          align: 'start',
+          sortable: false,
+          value: 'atack',
         },
         { text: 'Actions', value: 'actions', sortable: false },
       ],
@@ -233,13 +266,17 @@ import { mapGetters } from "vuex";
         if (this.editedIndex > -1) {
           console.log(this.editedIndex)
           this.editedItem.price = this.prices[this.editedIndex]
+          console.log( this.editedItem.def)
           Object.assign(this.desserts[this.editedIndex], this.editedItem)
         } else {
           this.editedItem.price = this.prices[this.dropdown_players.indexOf(this.editedItem.name)]
+          this.editedItem.atack = Math.floor((parseInt(this.drib[this.dropdown_players.indexOf(this.editedItem.name)]) + parseInt(this.pac[this.dropdown_players.indexOf(this.editedItem.name)]) + parseInt(this.shot[this.dropdown_players.indexOf(this.editedItem.name)]))/3)
+          this.editedItem.defense =  Math.floor((parseInt(this.def[this.dropdown_players.indexOf(this.editedItem.name)]) + parseInt(this.pass[this.dropdown_players.indexOf(this.editedItem.name)]) + parseInt(this.phys[this.dropdown_players.indexOf(this.editedItem.name)]))/3)
           this.desserts.push(this.editedItem)
           this.total = this.total + parseInt(this.editedItem.price)
-          console.log("indice" + this.dropdown_players.findIndex((value)=>{ value == this.editedItem.name }))
-          console.log("nome" + this.editedItem.name)
+          this.atc = this.atc + this.editedItem.atack
+          this.defes = this.defes + this.editedItem.defense
+          this.count = this.count +1 
         }
         console.log("selecionado" + this.selected)
 
@@ -254,9 +291,10 @@ import { mapGetters } from "vuex";
       deleteItem (item) {
         const index = this.desserts.indexOf(item)
         confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
+        
       },
       searchPlayer(){
-        const url = "http://45.76.32.59:5011/players/search/"+this.editedItem.name+'/'+this.selected_console;
+        const url = "http://localhost:5011/players/search/"+this.editedItem.name+'/'+this.selected_console;
         let config = {
           headers: {
             Authorization: "Bearer " + this.getToken
@@ -267,7 +305,13 @@ import { mapGetters } from "vuex";
           this.dropdown_players = res.data;
           let r=this.dropdown_players.map((obj)=>obj.player.toString())
           this.prices = this.dropdown_players.map((obj)=>obj.price)
-          console.log("aqui" + this.prices)
+          this.drib = this.dropdown_players.map((obj)=>obj.drib)
+          this.def = this.dropdown_players.map((obj)=>obj.def)
+          this.shot = this.dropdown_players.map((obj)=>obj.shot)
+          this.pass = this.dropdown_players.map((obj)=>obj.pass)
+          this.pac = this.dropdown_players.map((obj)=>obj.pac)
+          this.phys = this.dropdown_players.map((obj)=>obj.phys)
+          console.log("aqui" + this.drib + this.def)
           this.dropdown_players=r
     });
     },
@@ -276,19 +320,24 @@ import { mapGetters } from "vuex";
       console.log(this.team_name)
       console.log(this.desserts[0].name)
       console.log(this.selected_console)
+      console.log(this.desserts)
+      console.log(this.atc)
+      console.log(this.defes)
       //falta mandar o pedido para o backend com as infos
       let config = {
           headers: {
             Authorization: "Bearer " + this.getToken
           }
         };
-      axios.post('http://45.76.32.59:5011/teams/addTeam', {
+      axios.post('http://localhost:5011/teams/addTeam', {
 
                     name: this.team_name,
                     userId: this.id,
                     players:this.desserts,
                     price:this.total,
-                    platform : this.selected_console
+                    platform : this.selected_console,
+                    atck: this.atc/this.count,
+                    defense:this.defes/this.count
                 },config)
 
                 .then(function (response) {
@@ -302,6 +351,9 @@ import { mapGetters } from "vuex";
                     console.log("Erro ao adicionar a equipa" + error)
 
                 });
+        this.$router.push({
+        name: "teams",
+      });
     }
   }
   }

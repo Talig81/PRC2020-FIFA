@@ -50,16 +50,16 @@ Players.getLista = async function(){
 Players.getSimple = async function(){
     var query = `select ?player ?name ?age ?birth ?club ?position ?foot ?nationality ?quality ?overall where { 
         ?player a :Player.
-        ?player  :age ?age.
-        ?player  :birth_date ?birth.
-        ?player  :hasClub ?club.
-        ?player  :hasPosition ?position.
-        ?player  :hasFoot ?foot.
-        ?player  :hasNationality ?nationality.
-        ?player  :hasQuality ?quality.
+        OPTIONAL {?player  :age ?age}.
+        OPTIONAL {?player  :birth_date ?birth}.
+        OPTIONAL {?player  :hasClub ?club}.
+        OPTIONAL {?player  :hasPosition ?position}.
+        OPTIONAL {?player  :hasFoot ?foot}.
+        OPTIONAL {?player  :hasNationality ?nationality}.
+        OPTIONAL {?player  :hasQuality ?quality}.
         ?player  :name ?name.
-        ?player  :overall ?overall.
-    } limit 1000`
+        OPTIONAL { ?player  :overall ?overall}.
+    } LIMIT 10000`
     var encoded = encodeURIComponent(prefixes + query)
     console.log("here")
     try{
@@ -339,12 +339,30 @@ LIMIT 1`
 }
 
 Players.Searchxbox = async function(name){
-    var query = `select ?player ?price
+    var query = `select ?player ?price ?drib ?def ?shot ?pass ?pac ?phys
 	where { 
         ?player a :Player.
         ?player   :name ?name.
         ?player	:hasPrice ?ps.
         ?ps	:xbox_price_last ?price.
+        ?player   :hasDribbling ?drib_aux.
+        ?drib_aux :overall ?drib.
+        
+    
+    	?player   :hasDefending ?def_aux.
+        ?def_aux  :overall ?def.
+    	
+    	?player   :hasPhysical ?phys_aux.
+        ?phys_aux :overall ?phys.
+    	
+    	?player	  :hasPassing ?pass_aux.
+        ?pass_aux :overall ?pass.
+    	
+    	?player   :hasShooting ?shot_aux.
+        ?shot_aux :overall ?shot.
+    	
+    	?player   :hasPace ?pac_aux.
+        ?pac_aux  :overall ?pac.
     	FILTER regex (str(?name), "`+name+`","i"). 
 	} `
     var encoded = encodeURIComponent(prefixes + query)
@@ -366,12 +384,30 @@ Players.Searchxbox = async function(name){
 }
 
 Players.Searchpc = async function(name){
-    var query = `select ?player ?price
+    var query = `select ?player ?price ?drib ?def ?shot ?pass ?pac ?phys
 	where { 
         ?player a :Player.
         ?player   :name ?name.
         ?player	:hasPrice ?ps.
         ?ps	:pc_price_last ?price.
+        ?player   :hasDribbling ?drib_aux.
+        ?drib_aux :overall ?drib.
+        
+    
+    	?player   :hasDefending ?def_aux.
+        ?def_aux  :overall ?def.
+    	
+    	?player   :hasPhysical ?phys_aux.
+        ?phys_aux :overall ?phys.
+    	
+    	?player	  :hasPassing ?pass_aux.
+        ?pass_aux :overall ?pass.
+    	
+    	?player   :hasShooting ?shot_aux.
+        ?shot_aux :overall ?shot.
+    	
+    	?player   :hasPace ?pac_aux.
+        ?pac_aux  :overall ?pac.
     	FILTER regex (str(?name), "`+name+`","i"). 
 	} `
     var encoded = encodeURIComponent(prefixes + query)
@@ -393,12 +429,30 @@ Players.Searchpc = async function(name){
 }
 
 Players.Searchps = async function(name){
-    var query = `select ?player ?price
+    var query = `select ?player ?price ?drib ?def ?shot ?pass ?pac ?phys
 	where { 
         ?player a :Player.
         ?player   :name ?name.
         ?player	:hasPrice ?ps.
         ?ps	:ps_price_last ?price.
+        ?player   :hasDribbling ?drib_aux.
+        ?drib_aux :overall ?drib.
+        
+    
+    	?player   :hasDefending ?def_aux.
+        ?def_aux  :overall ?def.
+    	
+    	?player   :hasPhysical ?phys_aux.
+        ?phys_aux :overall ?phys.
+    	
+    	?player	  :hasPassing ?pass_aux.
+        ?pass_aux :overall ?pass.
+    	
+    	?player   :hasShooting ?shot_aux.
+        ?shot_aux :overall ?shot.
+    	
+    	?player   :hasPace ?pac_aux.
+        ?pac_aux  :overall ?pac.
     	FILTER regex (str(?name), "`+name+`","i"). 
 	} `
     var encoded = encodeURIComponent(prefixes + query)

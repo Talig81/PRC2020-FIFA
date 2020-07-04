@@ -8,7 +8,7 @@ var TeamsController = require('../controllers/pTeams')
 var Team = require('../models/pTeams')
 
 router.get('/personalTeam/:id',function (req, res) {
-  console.log("aqui")
+
   TeamsController.getTeamUser(req.params.id)
   .then(dados => {
     console.log("dados -> " + dados)
@@ -17,24 +17,33 @@ router.get('/personalTeam/:id',function (req, res) {
   .catch(e => res.status(500).send(`Erro na listagem de jogadores: ${e}`))
   })
 
+router.get('/personalTeam/players/:id/:name',function (req, res) {
+    TeamsController.getTeamPlayers(req.params.id,req.params.name)
+    .then(dados => {
+      console.log("dados -> " + dados.name)
+      res.jsonp(dados)
+    })
+    .catch(e => res.status(500).send(`Erro na listagem de jogadores: ${e}`))
+})
+
 router.get('/addPlayer/:id',passport.authenticate('jwt', { session: false }),function (req, res) {
   
 })
 
 router.post('/addTeam',passport.authenticate('jwt', { session: false }),function (req, res){
-console.log("cenas")
-console.log(req.body.name)
-console.log(req.body.userId)
-console.log(req.body.players)
-console.log(req.body.price)
-console.log(req.body.platform)
+console.log(req.body.atk)
 
 const newTeam = new Team ({ 
   name : req.body.name,
   userId : req.body.userId,
   players : req.body.players,
   price : req.body.price,
-  platform : req.body.platform
+  platform : req.body.platform,
+  atck: req.body.atck,
+  defense:req.body.defense,
+  points: 0,
+  wins:0,
+  defeats:0
 })
 
 TeamsController.addTeam(newTeam)
@@ -51,5 +60,24 @@ TeamsController.addTeam(newTeam)
             res.status(500).jsonp(err)
 })
 })
+
+router.get('/getAllTeams',function (req, res) {
+  TeamsController.getAllTeams()
+  .then(dados => {
+    console.log("dados -> " + dados.name)
+    res.jsonp(dados)
+  })
+  .catch(e => res.status(500).send(`Erro na listagem de equipas: ${e}`))
+})
+
+router.get('/getById/:id',function (req, res) {
+
+  TeamsController.getById(req.params.id)
+  .then(dados => {
+    console.log("dados -> " + dados)
+    res.jsonp(dados)
+  })
+  .catch(e => res.status(500).send(`Erro na listagem de equipas: ${e}`))
+  })
 
 module.exports = router;

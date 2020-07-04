@@ -8,6 +8,7 @@ var playerRouter = require('./routes/players');
 var usersRouter  = require('./routes/users');
 var indexRouter  = require('./routes/index');
 var teamsRouter   = require('./routes/teams');
+var leagueRouter   = require('./routes/league');
 
 var app = express();
 var cors = require('cors')
@@ -37,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/players', playerRouter);
 app.use('/users', usersRouter);
 app.use('/teams', teamsRouter);
+app.use('/league', leagueRouter);
 
 app.use('/',indexRouter);
 

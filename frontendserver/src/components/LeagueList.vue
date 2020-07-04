@@ -2,7 +2,7 @@
   <div>
     <v-card>
       <v-card-title>
-        Players
+        Leagues
         <v-spacer></v-spacer>
         <v-text-field
           v-model="search"
@@ -21,10 +21,9 @@
       >
         <template v-slot:item.actions="{ item }">
           <v-icon small class="mr-2" @click="editItem(item)">mdi-eye</v-icon>
-          <v-icon small class="mr-2" @click="addPlayer(item)">mdi-account-plus</v-icon>
         </template>
         <template v-slot:no-data>
-          <v-btn color="primary" @click="show_details">Reset</v-btn>
+          <p>Empty</p>
         </template>
       </v-data-table>
     </v-card>
@@ -40,20 +39,10 @@ export default {
     return {
       items: [],
       headers: [
-        { text: "Player", value: "player" },
-        {
-          text: "Name",
-          align: "start",
-          sortable: false,
-          value: "name"
-        },
-        { text: "Overall", value: "overall" },
-        { text: "Club", value: "club" },
-        { text: "Position", value: "position" },
-        { text: "Nationality", value: "nationality" },
-        { text: "Quality", value: "quality" },
-        { text: "Age", value: "age" },
-        { text: "Foot", value: "foot" },
+        { text: "Name", value: "name" },
+        { text: "Start Date", value: "startDate" },
+        { text: "End Date", value: "endDate" },
+        { text: "State ( 1-Open |  0 - Closed )", value: "state" },
         { text: "Actions", value: "actions", sortable: false }
       ],
       search: ""
@@ -65,8 +54,8 @@ export default {
   methods: {
     editItem(item) {
       this.$router.push({
-        name: "consultar_jogador",
-        params: { player: item.player }
+        name: "league",
+        params: { name: item.name }
       });
     },
     addPlayer(item) {
@@ -84,7 +73,7 @@ export default {
     }
   },
   mounted: function() {
-    const url = "http://localhost:5011/players/simple";
+    const url = "http://localhost:5011/league/list";
     let config = {
       headers: {
         Authorization: "Bearer " + this.getToken
