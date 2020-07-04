@@ -102,7 +102,7 @@ export default {
     };
     axios.get(url, config).then(res => {
         console.log(res.data);
-      this.name = res.data.user.nome;
+      this.name = res.data.user.name;
       this.email = res.data.user.email;
       this.user = res.data.user;
       this.id = res.data.user.id;

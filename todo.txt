@@ -2,22 +2,22 @@ Pendentes :
 	1 -BackEnd :
 		(a) adicionar rota e controlador para eliminar equipa de um determinado user ;
 		(b) adicionar a rota e controlador para dar update das informações de um user ;
-		(c) adicionar o rating de ataque da equipa nos models e no controller ;
-		(d) adicionar o rating de defesa da equipa nos models e no controller ;
+		(c) adicionar o rating de ataque da equipa nos models e no controller ; (DONE!)
+		(d) adicionar o rating de defesa da equipa nos models e no controller ; (DONE!)
 		(e) alterar 
 
 	2 - FrontEnd :
 		(a) acabar página de perfil ; (DONE!)
 		(b) acabar página de consulta de equipa ; (DONE!)
 		(c) adicionar botão para eliminar equipa de um determinado user e função correspondente ; (DONE -> falta a rota no backend e atualizar a função quando estiver feita)
-		(d) adicionar página para consulta da liga ;
-		(e) adicionar página para visualizar a classificação atual ;
+		(d) adicionar página para consulta da liga ; 
+		(e) adicionar página para visualizar a classificação atual ; (DONE!)
 		(f) adicionar o rating geral da equipa na criação ; (DONE!)
-		(g) adicionar o rating de ataque da equipa na criação ;
-		(h) adicionar o rating de defesa da equipa na criação ;
+		(g) adicionar o rating de ataque da equipa na criação ; (DONE!)
+		(h) adicionar o rating de defesa da equipa na criação ; (DONE!)
 		(i) confirmar que as pesquisas estão todas a funcionar 
 		(j) depois de criar uma equipa redirecionar para a lista de equipas (DONE!)
-		(k) adicionar a tabela dos jogadores na criação de equipa o rating de ataque e defesa 
+		(k) adicionar a tabela dos jogadores na criação de equipa o rating de ataque e defesa (DONE!)
 
 Notas :
 

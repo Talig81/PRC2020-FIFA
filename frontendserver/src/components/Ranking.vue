@@ -2,10 +2,7 @@
 <v-container>
   <v-row>
     <div :style="{backgroundColor:'#031927',width:'100%',height:'55%',marginTop:'5.5vh',color:'white',marginLeft:'0.5%'}">
-
         <b><p :style="{ marginLeft : '5%',marginTop:'4%'}">Ranking</p></b>
-
-        <v-btn small  @click="create()" :style="{position:'absolute', marginTop :' -3%', marginLeft : '50%'}">Create Team</v-btn>
     </div>
 
   </v-row>
