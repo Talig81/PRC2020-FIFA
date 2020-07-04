@@ -11,6 +11,7 @@ import Perfil from '../components/Perfil.vue'
 import MinhasEquipas from '../components/MinhasEquipas.vue'
 import Field from '../components/Field.vue'
 import Equipa from '../components/Equipa.vue'
+import Ranking from '../components/Ranking.vue'
 import store from '../store/modules/token';
 
 Vue.use(Router);
@@ -85,6 +86,12 @@ export default new Router({
       path: '/field',
       name: 'field',
       component: Field,
+      beforeEnter: isAuthenticated
+    },
+    {
+      path: '/ranking',
+      name: 'ranking',
+      component: Ranking,
       beforeEnter: isAuthenticated
     }
   ]

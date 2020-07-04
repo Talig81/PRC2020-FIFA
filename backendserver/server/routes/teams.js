@@ -40,7 +40,10 @@ const newTeam = new Team ({
   price : req.body.price,
   platform : req.body.platform,
   atck: req.body.atck,
-  defense:req.body.defense
+  defense:req.body.defense,
+  points: 0,
+  wins:0,
+  defeats:0
 })
 
 TeamsController.addTeam(newTeam)
