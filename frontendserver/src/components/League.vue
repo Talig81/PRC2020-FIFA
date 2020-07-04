@@ -38,25 +38,23 @@
 
 
      <v-row>
-        <p> Current State : </p>
+        <div :style="{backgroundColor:'#031927',width:'100%',height:'55%',marginTop:'5.5vh',color:'white',marginLeft:'0.5%'}">
+         <p v-if="state==1" :style="{marginLeft:'2%',marginTop:'1%'}">  Current State : Open </p>
+          <p v-else :style="{marginLeft:'2%',marginTop:'1%'}">  Current State : Closed </p>
+    </div>
     </v-row>
-      <v-row>
-        Eventualmente metemos resultados ??
-    </v-row>
-   <v-row>
-    <v-col class="d-flex" cols="6" sm="3">
-        <v-select
-          :items="teams"
-          label="Select a team "
-          solo
-          v-model="selected_console"
-        ></v-select>
-        
-      </v-col>
-  </v-row>
+   
      <v-row>
-       <div v-if="state=1" >
+       <v-row  v-if="state=1">
         <v-col class="d-flex" cols="6" sm="3">
+          <v-select
+            :items="teams"
+            label="Select a team "
+            solo
+            v-model="selected_console"
+          ></v-select>
+        </v-col>
+         <v-col class="d-flex" cols="6" sm="3">
               <v-btn
                   color="primary"
                   dark
@@ -64,9 +62,8 @@
                   v-bind="attrs"
                   v-on="on"
                 >Participate</v-btn>
-            
           </v-col>
-       </div>
+      </v-row>
   </v-row>
 
   </v-container>
@@ -97,18 +94,19 @@ export default {
     };
     axios.get(url1, config1).then(res => {
         this.id = res.data.user.id;
-         const url = "http://localhost:5011/teams/personalTeam/"+this.id
-    let config = {
-      headers: {
-        Authorization:
-          "Bearer " +
-          this.getToken
-      }
-    };
-    axios.get(url, config).then(res => {
-        this.teams = res.data.map((obj)=>obj.name)
-        console.log(this.teams)
-    });
+        const url = "http://localhost:5011/teams/personalTeam/"+this.id
+        let config = {
+          headers: {
+            Authorization:
+              "Bearer " +
+              this.getToken
+          }
+        };
+        axios.get(url, config).then(res => {
+            this.teams = res.data.map((obj)=>obj.name)
+            console.log(this.teams)
+        });
+
     });
   },
    computed: {
@@ -116,6 +114,18 @@ export default {
     },
    created() {
             this.league = this.$route.params.name;
+            let config = {
+            headers: {
+              Authorization:
+                "Bearer " +
+                this.getToken
+            }
+          };
+            const url2 = "http://localhost:5011/league/list/"+this.league
+            axios.get(url2, config).then(res => {
+                  this.state = res.data[0].state
+                  console.log(this.state)
+        });
         },
 
   methods: {}
