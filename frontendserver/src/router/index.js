@@ -10,10 +10,18 @@ import ConsultarJogador from '../components/PaginaJogador.vue'
 import Perfil from '../components/Perfil.vue'
 import MinhasEquipas from '../components/MinhasEquipas.vue'
 import Field from '../components/Field.vue'
-
+import Equipa from '../components/Equipa.vue'
+import store from '../store/modules/token';
 
 Vue.use(Router);
-
+// função para as rotas protegidas! basicamente so verifica se tem o token. temos que progredir para validar o token porque pode ja tar expirado
+const isAuthenticated = (to, from, next) => {
+  if (store.state.token != null) {
+    next()
+    return
+  }
+  next('/')
+}
 export default new Router({
   mode: 'history',
   routes: [
@@ -30,7 +38,14 @@ export default new Router({
     {
       path: '/teams/create',
       name: 'criar_equipas',
-      component: CriarEquipa
+      component: CriarEquipa,
+      beforeEnter: isAuthenticated
+    },
+    {
+      path: '/teams/view/:name',
+      name: 'consultar_equipa',
+      component: Equipa,
+      beforeEnter: isAuthenticated
     },
     {
       path: '/registar',
@@ -40,12 +55,14 @@ export default new Router({
     {
       path: '/players/consult/:player',
       name: 'consultar_jogador',
-      component: ConsultarJogador
+      component: ConsultarJogador,
+      beforeEnter: isAuthenticated
     },
     {
       path: '/teste',
       name: 'teste',
-      component: Teste
+      component: Teste,
+      beforeEnter: isAuthenticated
     },
     {
       path: '/login',
@@ -55,17 +72,20 @@ export default new Router({
     {
       path: '/profile',
       name: 'profile',
-      component: Perfil
+      component: Perfil,
+      beforeEnter: isAuthenticated
     },
     {
       path: '/teams',
       name: 'teams',
-      component: MinhasEquipas
+      component: MinhasEquipas,
+      beforeEnter: isAuthenticated
     },
     {
       path: '/field',
       name: 'field',
-      component: Field
+      component: Field,
+      beforeEnter: isAuthenticated
     }
   ]
 });

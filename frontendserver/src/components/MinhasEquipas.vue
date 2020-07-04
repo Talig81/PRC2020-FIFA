@@ -31,19 +31,25 @@
         :search="search"
         class="elevation-1"
     >
-          <template v-slot:item.actions="{ item }">
+        <template v-slot:item.actions="{ item }">
         <v-icon
           small
           class="mr-2"
-          @click="editItem(item)"
+          @click="consult(item)"
         >
           mdi-eye
+        </v-icon>
+        <v-icon
+          small
+          class="mr-2"
+          @click="deletion(item)"
+        >
+          mdi-delete
         </v-icon>
       </template>
       <template v-slot:no-data>
        <p :style="{marginTop:'2vh'}"> No data to show</p>
       </template></v-data-table>
-    
     </v-card>
 </div>
   </v-row>
@@ -69,11 +75,8 @@ import axios from "axios";
       }
     };
     axios.get(url1, config1).then(res => {
-        console.log(res.data);
         this.id = res.data.user.id;
-        console.log("montado" + this.id)
          const url = "http://localhost:5011/teams/personalTeam/"+this.id
-    console.log(url)
     let config = {
       headers: {
         Authorization:
@@ -82,14 +85,9 @@ import axios from "axios";
       }
     };
     axios.get(url, config).then(res => {
-        console.log("montado2" + res.data[0].name);
+        this.items=res.data
     });
     });
-
-   
-
-   
-
   },
   computed: {
       formTitle () {
@@ -100,6 +98,18 @@ import axios from "axios";
     methods: {
      create () {
         this.$router.push({ name: "criar_equipas"});
+    },
+    deletion(){
+      // falta chamar axios para a rota que temos de criar no backend 
+       this.$router.push({
+        name: "teams",
+      });
+    },
+    consult(item) {
+      this.$router.push({
+        name: "consultar_equipa",
+        params: { name: item.name }
+      });
     }
   },
     data: () => ({
@@ -107,27 +117,20 @@ import axios from "axios";
       drawer: null,
       items:[],
       headers: [
-        { text: "Player", value: "player" },
         {
-          text: "Name",
+          text: "Team Name",
           align: "start",
-          sortable: false,
+          sortable: true,
           value: "name"
         },
-        { text: "Overall", value: "overall" },
-        { text: "Club", value: "club" },
-        { text: "Position", value: "position" },
-        { text: "Nationality", value: "nationality" },
-        { text: "Quality", value: "quality" },
-        { text: "Age", value: "age" },
-        { text: "Foot", value: "foot" },
+        { text: "Platform", value: "platform" },
+        { text: "Atacking Rating", value: "atck" },
+        { text: "Defensive Rating", value: "defense" },
+        { text: "Price", value: "price" },
         { text: "Actions", value: "actions", sortable: false }
       ],
-      
     }),
      components: {
-      
   }
-  
-  }
+}
 </script>

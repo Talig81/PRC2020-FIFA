@@ -10,30 +10,11 @@
                       <v-img v-if="hasAvatar(user)" :src="auxiliar(user)"></v-img>
                       <v-img v-else src="../assets/logo.png" to="/profile" link></v-img>
                     </v-avatar>
-              </v-col>
-<v-card flat class="text-xs-center ma-3">
-                <v-list-item>
-                  <v-list-item-title class="headline">{{name}} </v-list-item-title>
-                </v-list-item>
-                <div class="pa-1">
-                  <v-icon>mdi-account-card-details</v-icon>
-                  <span>{{id}}</span>
-                </div>
-
-                <div class="pa-1">
-                  <v-icon>mdi-email</v-icon>
-                  <span>{{email}}</span>
-                </div>
-
-          
-                <div class="pa-1">
-                  <v-icon>mdi-comment-text-outline</v-icon>
-                  <span>{{password}}</span>
-                  <div align="center">
-                      <v-btn
+                    <v-btn
                           color="success"
                           @click="chooseFile()"
                           class="font-weight-light"
+                          :style="{marginLeft:'5%'}"
                         >Upload Avatar</v-btn>
                         <input
                           class="mx-0 font-weight-light"
@@ -43,6 +24,44 @@
                           id="fileUpload"
                           hidden
                         />
+              </v-col>
+<v-card flat class="text-xs-center ma-3">
+                <v-list-item>
+                  <v-list-item-title class="headline">{{name}} </v-list-item-title>
+                </v-list-item>
+                <div class="pa-1" align="center">
+                  <v-text-field
+                v-model="name"
+                id="name"
+                label="Username"
+                name="name"
+                prepend-icon="mdi-account"
+              />
+              <v-text-field
+                v-model="password"
+                id="password"
+                label="Password"
+                name="password"
+                prepend-icon="mdi-lock"
+              />
+              <v-text-field
+                v-model="email"
+                id="email"
+                label="Email"
+                name="email"
+                prepend-icon="mdi-email"
+              />
+                <div >
+
+                  <div >
+                      
+                         <v-btn
+                         :style="{marginLeft:'1%',marginTop:'4%'}"
+                          color="success"
+                          @click="update()"
+                          class="font-weight-light"
+                        >Update info</v-btn>
+                </div>
                   </div>
                 </div>
               </v-card>
@@ -87,6 +106,7 @@ export default {
       this.email = res.data.user.email;
       this.user = res.data.user;
       this.id = res.data.user.id;
+      this.password = res.data.user.password;
       this.src = "http://45.76.32.59:5011/uploads/" + res.data.user.id + "/avatar" + res.data.user.avatar
       
     });
@@ -116,10 +136,19 @@ export default {
         }
       };
       axios.post(url, data, config);
+      this.$router.push({
+        name: "profile",
+      });
     },
      chooseFile() {
       document.getElementById("fileUpload").click();
     },
+    update(){
+      // enviar pedido para a rota que falta criar no backend com o update em todos os campos
+      this.$router.push({
+        name: "profile",
+      });
+    }
   }
 };
 </script>

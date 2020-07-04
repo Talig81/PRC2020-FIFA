@@ -339,12 +339,30 @@ LIMIT 1`
 }
 
 Players.Searchxbox = async function(name){
-    var query = `select ?player ?price
+    var query = `select ?player ?price ?drib ?def ?shot ?pass ?pac ?phys
 	where { 
         ?player a :Player.
         ?player   :name ?name.
         ?player	:hasPrice ?ps.
         ?ps	:xbox_price_last ?price.
+        ?player   :hasDribbling ?drib_aux.
+        ?drib_aux :overall ?drib.
+        
+    
+    	?player   :hasDefending ?def_aux.
+        ?def_aux  :overall ?def.
+    	
+    	?player   :hasPhysical ?phys_aux.
+        ?phys_aux :overall ?phys.
+    	
+    	?player	  :hasPassing ?pass_aux.
+        ?pass_aux :overall ?pass.
+    	
+    	?player   :hasShooting ?shot_aux.
+        ?shot_aux :overall ?shot.
+    	
+    	?player   :hasPace ?pac_aux.
+        ?pac_aux  :overall ?pac.
     	FILTER regex (str(?name), "`+name+`","i"). 
 	} `
     var encoded = encodeURIComponent(prefixes + query)
@@ -366,12 +384,30 @@ Players.Searchxbox = async function(name){
 }
 
 Players.Searchpc = async function(name){
-    var query = `select ?player ?price
+    var query = `select ?player ?price ?drib ?def ?shot ?pass ?pac ?phys
 	where { 
         ?player a :Player.
         ?player   :name ?name.
         ?player	:hasPrice ?ps.
         ?ps	:pc_price_last ?price.
+        ?player   :hasDribbling ?drib_aux.
+        ?drib_aux :overall ?drib.
+        
+    
+    	?player   :hasDefending ?def_aux.
+        ?def_aux  :overall ?def.
+    	
+    	?player   :hasPhysical ?phys_aux.
+        ?phys_aux :overall ?phys.
+    	
+    	?player	  :hasPassing ?pass_aux.
+        ?pass_aux :overall ?pass.
+    	
+    	?player   :hasShooting ?shot_aux.
+        ?shot_aux :overall ?shot.
+    	
+    	?player   :hasPace ?pac_aux.
+        ?pac_aux  :overall ?pac.
     	FILTER regex (str(?name), "`+name+`","i"). 
 	} `
     var encoded = encodeURIComponent(prefixes + query)
@@ -393,12 +429,30 @@ Players.Searchpc = async function(name){
 }
 
 Players.Searchps = async function(name){
-    var query = `select ?player ?price
+    var query = `select ?player ?price ?drib ?def ?shot ?pass ?pac ?phys
 	where { 
         ?player a :Player.
         ?player   :name ?name.
         ?player	:hasPrice ?ps.
         ?ps	:ps_price_last ?price.
+        ?player   :hasDribbling ?drib_aux.
+        ?drib_aux :overall ?drib.
+        
+    
+    	?player   :hasDefending ?def_aux.
+        ?def_aux  :overall ?def.
+    	
+    	?player   :hasPhysical ?phys_aux.
+        ?phys_aux :overall ?phys.
+    	
+    	?player	  :hasPassing ?pass_aux.
+        ?pass_aux :overall ?pass.
+    	
+    	?player   :hasShooting ?shot_aux.
+        ?shot_aux :overall ?shot.
+    	
+    	?player   :hasPace ?pac_aux.
+        ?pac_aux  :overall ?pac.
     	FILTER regex (str(?name), "`+name+`","i"). 
 	} `
     var encoded = encodeURIComponent(prefixes + query)

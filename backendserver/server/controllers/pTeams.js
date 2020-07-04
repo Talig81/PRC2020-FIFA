@@ -4,6 +4,10 @@ module.exports.getTeamUser = (userId) =>{
     return PTeams.find({userId: userId}).exec();
 }
 
+module.exports.getTeamPlayers = (userId,teamName) =>{
+    return PTeams.find({userId: userId,name:teamName}).exec();
+}
+
 module.exports.addTeam = (team) =>{
     return team.save();
 }
