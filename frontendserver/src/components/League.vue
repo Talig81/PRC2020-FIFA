@@ -1,31 +1,18 @@
 <template>
   <v-container>
     <v-row>
-      <v-col>
-        <div :id="id">
-          <img
-            v-bind:src="'https://upload.wikimedia.org/wikipedia/commons/8/82/Soccer_Field_Transparant.svg'"
-          />
-        </div>
-      </v-col>
-      <v-col>
-        <table>
-          <tr v-for="i in inputItems" :key="i">
-            <td>
-              <vue-draggable-resizable :w="50" :h="50">
-                <div class="numberCircle"> {{i.number}}</div>
-              </vue-draggable-resizable><span> {{i.number}} - {{i.name}} </span>
-              
-            </td>
-          </tr>
-        </table>
-      </v-col>
+        aqui metemos a aparecer as teams da liga;
+    </v-row>
+     <v-row>
+        aqui metemos a aparecer se a liga está aberta ou não, se estiver quanto tempo falta até abrir ;
+    </v-row>
+    <v-row>
+        aqui metemos a aparecer as teams do user e caso a liga esteja aberta botão para inscrever uma team;
     </v-row>
   </v-container>
 </template>
 
 <script>
-import VueDraggableResizable from "vue-draggable-resizable";
 
 export default {
   data() {
@@ -50,7 +37,7 @@ export default {
     };
   },
   components: {
-    VueDraggableResizable
+
   },
   methods: {}
 };

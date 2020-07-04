@@ -1,63 +1,89 @@
 <template>
-  <v-container>
-    <v-row>
-        Lista das ligas e o estado delas
-    </v-row>
-  </v-container>
+  <div>
+    <v-card>
+      <v-card-title>
+        Leagues
+        <v-spacer></v-spacer>
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Search"
+          single-line
+          hide-details
+        ></v-text-field>
+      </v-card-title>
+      <v-data-table
+        :headers="headers"
+        :items="items"
+        :items-per-page="15"
+        :search="search"
+        class="elevation-1"
+      >
+        <template v-slot:item.actions="{ item }">
+          <v-icon small class="mr-2" @click="editItem(item)">mdi-eye</v-icon>
+          <v-icon small class="mr-2" @click="addPlayer(item)">mdi-account-plus</v-icon>
+        </template>
+        <template v-slot:no-data>
+          <v-btn color="primary" @click="show_details">Reset</v-btn>
+        </template>
+      </v-data-table>
+    </v-card>
+  </div>
 </template>
 
+
 <script>
-
-
+import axios from "axios";
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      inputItems: [
-        {
-         number: "10",
-            name: "TaliG81",
-          id: 0
-        },
-        {
-          number: "7",
-          name: "Ronaldo",
-          id: 1
-        },
-        {
-          number: "11",
-          name: "Tiago 'Baptista Bomb' Batista",
-          id: 1
-        }
-      ]
+      items: [],
+      headers: [
+        { text: "Name", value: "name" },
+        { text: "Start Date", value: "startDate" },
+        { text: "End Date", value: "endDate" },
+        { text: "State ( 1-Open |  0 - Closed )", value: "state" },
+        { text: "Actions", value: "actions", sortable: false }
+      ],
+      search: ""
     };
   },
-  components: {
-   
+  computed: {
+    ...mapGetters(["getToken"])
   },
-  methods: {}
+  methods: {
+    editItem(item) {
+      this.$router.push({
+        name: "consultar_jogador",
+        params: { player: item.player }
+      });
+    },
+    addPlayer(item) {
+      const url = "http://45.76.32.59:5011/users/addPlayer";
+      let config = {
+        headers: {
+          Authorization: "Bearer " + this.getToken
+        }
+      };
+      console.log(config)
+      let body = {
+        playerName: item.player
+      };
+      axios.post(url,body,config).then();
+    }
+  },
+  mounted: function() {
+    const url = "http://localhost:5011/league/list";
+    let config = {
+      headers: {
+        Authorization: "Bearer " + this.getToken
+      }
+    };
+    axios.get(url, config).then(res => {
+      this.items = res.data;
+      console.log(this.items);
+    });
+  }
 };
 </script>
-
-<style scoped>
-.wrapper {
-  width: 50%;
-  height: 50%;
-  border: 1px solid #000;
-  border-radius: 10px;
-  position: relative;
-}
-
-.numberCircle {
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  padding: 8px;
-
-  background: #fff;
-  border: 2px solid #666;
-  color: #666;
-  text-align: center;
-
-  font: 22px Arial, sans-serif;
-}
-</style>
