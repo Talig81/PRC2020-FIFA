@@ -5,7 +5,7 @@
         <b><p :style="{ marginLeft : '5%',marginTop:'4%'}">Overview of {{this.league}}</p></b>
          <v-btn
           small
-          @click="create()"
+          @click="details()"
           :style="{position:'absolute', marginTop :' -3%', marginLeft : '50%'}"
         >Details</v-btn>
     </div>
@@ -189,6 +189,12 @@ export default {
         console.log("select a team")
       }
      
+    },
+    details(){
+      this.$router.push({
+        name: "details",
+        params: { name: this.league }
+      });
     }
   }
 };
