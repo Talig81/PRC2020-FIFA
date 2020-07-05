@@ -93,9 +93,12 @@ export default {
     });
   },
   computed: {
+    ...mapGetters(["getToken"]),
     formTitle() {
       return this.editedIndex === -1 ? "New Player" : "Edit Player";
+       
     },
+  
     methods: {
      create () {
         this.$router.push({ name: "criar_equipas"});

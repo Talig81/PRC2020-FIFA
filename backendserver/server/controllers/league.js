@@ -16,3 +16,7 @@ module.exports.addTeam = (name, teamId) => {
     return League
         .updateOne({name: name}, {$push: {teams: teamId}})
 }
+module.exports.addGame = (name, gameId) => {
+    return League
+        .updateOne({name: name}, {$push: {games: gameId}})
+}
