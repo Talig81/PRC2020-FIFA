@@ -6,6 +6,7 @@ function getRndInteger(min, max) {
   }
 
 module.exports.playGame = (team1, team2, leaguename) => {
+    console.log(team2[0])
     return Pteams.find({
         '_id': {
             $in: [
@@ -14,13 +15,10 @@ module.exports.playGame = (team1, team2, leaguename) => {
             ]
         }
     }).then((t1) => {
-        console.log(t1[0])
         t1A = parseInt(t1[0].atck)
         t1D = parseInt(t1[0].defense)
         t2A = parseInt(t1[1].atck)
         t2D = parseInt(t1[1].defense)
-        console.log("T1D " + t1D)
-        console.log("T1D " + t2D)
         flag1 = getRndInteger(0,2)
         flag2 = getRndInteger(0,2)
         flag3 = getRndInteger(0,2)
@@ -105,12 +103,13 @@ module.exports.playGame = (team1, team2, leaguename) => {
             team2: t1[1].name,
             goals1: goals1,
             goals2: goals2,
-            idTeam1: team1,
-            idTeam2: team2,
-            
+            idTeam1: team1[0],
+            idTeam2: team2[0],
         })
         
-        return newGame.save()
+        newGame.save()
+      return newGame._id
+       
     })
     
 }
