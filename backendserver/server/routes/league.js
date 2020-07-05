@@ -45,7 +45,7 @@ router.post('/create',/*passport.authenticate('jwt', { session: false }),*/funct
 
 router.post('/participate/:league/:teamId',/*passport.authenticate('jwt', { session: false }),*/function (req, res){
     console.log(req.params.league)
-    console.log(req.params.teamId)    
+    console.log(req.params.teamId)
     LeagueController.addTeam(req.params.league,req.params.teamId)
                       .then((dados) => {
                           console.log("Equipa adcionada")
@@ -93,16 +93,12 @@ router.get('/week/:league',/*passport.authenticate('jwt', { session: false }),*/
                                   console.log(err)
                                   res.status(500).jsonp(err)
                               })
-
-
-            
 })
+
 router.get('/list/:name', function(req, res, next) {
-  
       LeagueController.getLeague(req.params.name)
         .then(dados => res.jsonp(dados))
         .catch(e => res.status(500).send(`Erro na listagem de ligas: ${e}`))
     });
 
-    
 module.exports = router;

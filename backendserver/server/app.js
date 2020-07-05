@@ -9,6 +9,7 @@ var usersRouter  = require('./routes/users');
 var indexRouter  = require('./routes/index');
 var teamsRouter   = require('./routes/teams');
 var leagueRouter   = require('./routes/league');
+var gameRouter   = require('./routes/game');
 
 var app = express();
 var cors = require('cors')
@@ -39,6 +40,7 @@ app.use('/players', playerRouter);
 app.use('/users', usersRouter);
 app.use('/teams', teamsRouter);
 app.use('/league', leagueRouter);
+app.use('/games', gameRouter);
 
 app.use('/',indexRouter);
 

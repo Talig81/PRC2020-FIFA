@@ -107,17 +107,15 @@ module.exports.playGame = (team1, team2, leaguename) => {
             goals2: goals2,
             idTeam1: team1,
             idTeam2: team2,
-            
         })
-        
         return newGame.save()
     })
-    
 }
+
 module.exports.getGame = (id) =>{
     return Game.find({_id: id}).exec();
 }
 
 module.exports.getGameOfLeague = (league) =>{
-    return Game.find({_leagueName: league}).exec();
+    return Game.find({leagueName: league}).exec();
 }
