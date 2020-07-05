@@ -9,9 +9,9 @@ var teamSchema = new mongoose.Schema({
     platform : {type:String, required:true},
     atck : {type:Number, required:true},
     defense : {type:Number, required:true},
-    points: {type:Number, required:true}, // usar para o ranking da liga e registo dos jogos ;
-    wins: {type:Number, required:true}, // usar para o ranking da liga e registo dos jogos  se ainda der;
-    defeats :{type:Number, required:true}, // usar para o ranking da liga e registo dos jogos se ainda der ;
+    points: {type:Number, required:true},   // usar para o ranking da liga e registo dos jogos ;
+    wins: {type:Number, required:true},     // usar para o ranking da liga e registo dos jogos  se ainda der;
+    defeats :{type:Number, required:true},  // usar para o ranking da liga e registo dos jogos se ainda der ;
 })
 
 module.exports = mongoose.model('pTeam', teamSchema)

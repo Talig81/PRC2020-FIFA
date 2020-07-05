@@ -71,7 +71,7 @@ router.get('/getAllTeams',function (req, res) {
 })
 
 router.get('/getById/:id',function (req, res) {
-
+  console.log("teste")
   TeamsController.getById(req.params.id)
   .then(dados => {
     console.log("dados -> " + dados)
