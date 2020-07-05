@@ -13,6 +13,6 @@ module.exports.getList = () =>{
 }
 
 module.exports.addTeam = (name, teamId) => {
-    return Post
+    return League
         .updateOne({name: name}, {$push: {teams: teamId}})
 }
