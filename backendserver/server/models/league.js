@@ -9,6 +9,8 @@ var leagueSchema = new mongoose.Schema({
     state : {type:Number, required:true}, // open or closed for inscription
     startDate :{type:String, required: true},
     endDate :{type:String},
+    half : {type:Number},
+    week : {type:Number},
 })
 
 module.exports = mongoose.model('league', leagueSchema)
