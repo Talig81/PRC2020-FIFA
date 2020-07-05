@@ -1,25 +1,28 @@
-<template>
+<template >
 <div id="app">
       <v-row>
-    <div :style="{backgroundColor:'#031927',width:'100%',height:'55%',marginTop:'5.5vh',color:'white',marginLeft:'0.5%'}">
-        <b><p :style="{ marginLeft : '5%',marginTop:'4%'}">Details of {{this.league}}</p></b>
+    <div :style="{backgroundColor:'#031927',width:'100%',height:'55%',marginTop:'5.5vh',color:'white',marginLeft:'0.5%',marginBottom:'3%'}">
+        <p :style="{ marginLeft : '5%',marginTop:'4%'}">Details of <b>{{this.league}}</b></p>
     </div>
 
   </v-row>
-  <v-app id="inspire">
-    <v-card
-      class="mx-auto"
-      max-width="344"
-      outlined
-    >
-        <v-list-item-content>
-          <div class="overline mb-4">Game Resume</div>
-          <v-list-item-title class="headline mb-1">Teams1 vs Team2</v-list-item-title>
-          <v-list-item-subtitle>0-0</v-list-item-subtitle>
-        </v-list-item-content>
-    </v-card>
-  </v-app>
+
+<ul>
+   <h2>Matches</h2>
+    <div :style="{marginBottom:'1%'}" v-for="item in games" :key="item" >
+    <center> <p :style="{color:'white',backgroundColor:'#031927'}"> <b>{{item.team1}}</b>   {{item.goals1}}   -   {{item.goals2}}  <b>{{item.team2}}</b>  </p></center>
+    </div>
+</ul>
+
+<ul>
+   <h2>Points</h2>
+    <div :style="{marginBottom:'1%',backgroundColor:'#031927'}" v-for="item in points" :key="item" >
+     
+    <center> <p :style="{color:'white',backgroundColor:'#031927'}"> <b>{{item.name}}</b>    -   {{item.points}} </p></center>
+    </div>
+</ul>
 </div>
+
 </template>
 
 <script>
@@ -30,12 +33,15 @@ export default {
   data: () => ({
       league: '',
       teams:[],
+      teste:[{team1:'ola',team2:'hello'},{team1:'cenas',team2:'pop'}],
       id:'',
       state:'',
       selected_team:'',
       teams_id: [],
       participating:[],
       participating_teams:[],
+      points:[],
+      games:[],
        headers: [
         { text: "Name", value: "name" },
         { text: "Platform", value: "platform" },
@@ -44,9 +50,7 @@ export default {
         { text: "Defense Rating", value: "defense" },
       ],
     }),
-   
   components: {
-
   },
     mounted: function () {
     const url1 = "http://45.76.32.59:5011/users/teste"
@@ -92,15 +96,48 @@ export default {
                   this.state = res.data[0].state
                   this.participating = res.data[0].teams
                           // agora tenho o id das equipas tenho de ir buscar as infos das equipas ao backend
-         console.log("fora"+this.participating)
-         this.participating.map((id)=>{
-         console.log("here")
-          // fazer pedido ao backend para cada team e dar append no array participating_teams
-           const url3 = "http://localhost:5011/teams/getById/"+id
-            axios.get(url3, config).then(res => {
-                 this.participating_teams.push({name:res.data[0].name,platform:res.data[0].platform,price:res.data[0].price,atack:res.data[0].atck,defense:res.data[0].defense})
-                 console.log(this.participating_teams)
+            console.log("fora"+this.participating)
+            this.participating.map((id)=>{
+            console.log("here")
+            // fazer pedido ao backend para cada team e dar append no array participating_teams
+            const url3 = "http://localhost:5011/teams/getById/"+id
+              axios.get(url3, config).then(res => {
+                  this.participating_teams.push({name:res.data[0].name,platform:res.data[0].platform,price:res.data[0].price,atack:res.data[0].atck,defense:res.data[0].defense})
+                  console.log(this.participating_teams)
         });
+
+
+        });
+                   const url4 = "http://localhost:5011/games/lista/"+this.league
+            axios.get(url4, config).then(res => {
+                  this.games = res.data
+                  console.log(this.games)
+                  this.games.map((element)=>{
+                    var flag=0;
+                    if(element.goals1 > element.goals2){
+                        console.log("ganha a team 1")
+                        this.points.map((team)=>{
+                          if(team.name == element.team1){
+                            flag=1
+                            team.points = team.points + 3
+                          }
+                        })
+                        if(flag==0){
+                          var team =' '
+                          team = element.team1
+                          console.log(team)
+                          this.points.push({name:team,points:3})
+                        }
+                    }
+                    if(element.goals1 == element.goals2){
+                        console.log("empate")
+                    }
+                    if(element.goals1 < element.goals2){
+                        console.log("empate")
+                    }
+                    
+                  })
+                
         });
 
         })
@@ -133,7 +170,6 @@ export default {
       else {
         console.log("select a team")
       }
-     
     }
   }
 };

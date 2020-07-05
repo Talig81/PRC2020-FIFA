@@ -103,6 +103,7 @@ module.exports.playGame = (team1, team2, leaguename) => {
             team2: t1[1].name,
             goals1: goals1,
             goals2: goals2,
+<<<<<<< HEAD
             idTeam1: team1[0],
             idTeam2: team2[0],
         })
@@ -110,13 +111,19 @@ module.exports.playGame = (team1, team2, leaguename) => {
         newGame.save()
       return newGame._id
        
+=======
+            idTeam1: team1,
+            idTeam2: team2,
+        })
+        return newGame.save()
+>>>>>>> f0ee6e8a09570a816d129a7e15412fe804dc9e38
     })
-    
 }
+
 module.exports.getGame = (id) =>{
     return Game.find({_id: id}).exec();
 }
 
 module.exports.getGameOfLeague = (league) =>{
-    return Game.find({_leagueName: league}).exec();
+    return Game.find({leagueName: league}).exec();
 }
