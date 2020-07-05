@@ -14,6 +14,18 @@
           v-model="selected_console"
         ></v-select>
       </v-col>
+      <v-col align="center"> 
+        <span> Logo </span>
+        <div>
+          <img src="../assets/logo.png"/>
+    <span class="border border-dark"></span>
+    <span class="border-top border-dark"></span>
+    <span class="border-right border-dark"></span>
+    <span class="border-bottom border-dark"></span>
+    <span class="border-left border-dark"></span>
+  </div>
+        
+      </v-col>
   </v-row>
   <v-row :style="{width:'20%',marginLeft:'0.5vh'}">
      <v-text-field label="Team name" v-model="team_name" name="team_name" :rules="rules" hide-details="auto"></v-text-field>

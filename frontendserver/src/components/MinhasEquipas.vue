@@ -1,22 +1,16 @@
 <template>
-  <v-container>
-    <v-row>
-      <div
-        :style="{backgroundColor:'#031927',width:'100%',height:'55%',marginTop:'5.5vh',color:'white',marginLeft:'0.5%'}"
-      >
-        <b>
-          <p :style="{ marginLeft : '5%',marginTop:'4%'}">Overview of my Teams</p>
-        </b>
+<v-container>
+  <v-row>
+    <div :style="{backgroundColor:'#031927',width:'100%',height:'55%',marginTop:'5.5vh',color:'white',marginLeft:'0.5%'}">
 
-        <v-btn
-          small
-          @click="create()"
-          :style="{position:'absolute', marginTop :' -3%', marginLeft : '50%'}"
-        >Create Team</v-btn>
-      </div>
-    </v-row>
+        <b><p :style="{ marginLeft : '5%',marginTop:'4%'}">Overview of my Teams</p></b>
 
-    <v-row :style="{width:'100%',marginTop:'3vh',marginLeft:'0.25%'}">
+        <v-btn small  @click="create()" :style="{position:'absolute', marginTop :' -3%', marginLeft : '50%'}">Create Team</v-btn>
+    </div>
+
+  </v-row>
+
+  <v-row :style="{width:'100%',marginTop:'3vh',marginLeft:'0.25%'}">
       <div :style="{width:'100%'}">
   <v-card>
     <v-card-title>
@@ -65,21 +59,22 @@
 <script>
 import { mapGetters } from "vuex";
 import axios from "axios";
-
-export default {
-  props: {
-    source: String
-  },
-  mounted: function() {
-    const url1 = "http://45.76.32.59:5011/users/teste";
+  export default {
+    props: {
+      source: String,
+    },
+    mounted: function () {
+    const url1 = "http://45.76.32.59:5011/users/teste"
     let config1 = {
       headers: {
-        Authorization: "Bearer " + this.getToken
+        Authorization:
+          "Bearer " +
+          this.getToken
       }
     };
     axios.get(url1, config1).then(res => {
         this.id = res.data.user.id;
-         const url = "http://localhost:5011/teams/personalTeam/"+this.id
+         const url = "http://45.76.32.59:5011/teams/personalTeam/"+this.id
     let config = {
       headers: {
         Authorization:
@@ -93,8 +88,10 @@ export default {
     });
   },
   computed: {
-    formTitle() {
-      return this.editedIndex === -1 ? "New Player" : "Edit Player";
+      formTitle () {
+        return this.editedIndex === -1 ? 'New Player' : 'Edit Player'
+      },
+      ...mapGetters(["getToken"])
     },
     methods: {
      create () {
@@ -133,6 +130,5 @@ export default {
     }),
      components: {
   }
-}
 }
 </script>

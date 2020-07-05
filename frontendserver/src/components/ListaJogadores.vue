@@ -84,7 +84,7 @@ export default {
     }
   },
   mounted: function() {
-    const url = "http://localhost:5011/players/simple";
+    const url = "http://45.76.32.59:5011/players/simple";
     let config = {
       headers: {
         Authorization: "Bearer " + this.getToken
