@@ -1,80 +1,25 @@
 <template>
-  <v-container>
-    <v-row>
+<div id="app">
+      <v-row>
     <div :style="{backgroundColor:'#031927',width:'100%',height:'55%',marginTop:'5.5vh',color:'white',marginLeft:'0.5%'}">
-        <b><p :style="{ marginLeft : '5%',marginTop:'4%'}">Overview of {{this.league}}</p></b>
-         <v-btn
-          small
-          @click="details()"
-          :style="{position:'absolute', marginTop :' -3%', marginLeft : '50%'}"
-        >Details</v-btn>
+        <b><p :style="{ marginLeft : '5%',marginTop:'4%'}">Details of {{this.league}}</p></b>
     </div>
 
   </v-row>
-
-
-    <v-card>
-      <v-card-title>
-        Teams Participating
-        <v-spacer></v-spacer>
-        <v-text-field
-          v-model="search"
-          append-icon="mdi-magnify"
-          label="Search"
-          single-line
-          hide-details
-        ></v-text-field>
-      </v-card-title>
-      <v-data-table
-        :headers="headers"
-        :items="participating_teams"
-        :items-per-page="15"
-        :search="search"
-        class="elevation-1"
-      >
-        <template v-slot:item.actions="{ item }">
-          <v-icon small class="mr-2" @click="editItem(item)">mdi-eye</v-icon>
-        </template>
-        <template v-slot:no-data>
-          <p>Empty</p>
-        </template>
-      </v-data-table>
+  <v-app id="inspire">
+    <v-card
+      class="mx-auto"
+      max-width="344"
+      outlined
+    >
+        <v-list-item-content>
+          <div class="overline mb-4">Game Resume</div>
+          <v-list-item-title class="headline mb-1">Teams1 vs Team2</v-list-item-title>
+          <v-list-item-subtitle>0-0</v-list-item-subtitle>
+        </v-list-item-content>
     </v-card>
-
-
-     <v-row>
-        <div :style="{backgroundColor:'#031927',width:'100%',height:'55%',marginTop:'5.5vh',color:'white',marginLeft:'0.5%'}">
-         <p v-if="state==1" :style="{marginLeft:'2%',marginTop:'1%'}">  Current State : Open </p>
-          <p v-else :style="{marginLeft:'2%',marginTop:'1%'}">  Current State : Closed </p>
-    </div>
-    </v-row>
-   
-     <v-row>
-       <v-row  v-if="state=1">
-        <v-col class="d-flex" cols="6" sm="3">
-          <v-select
-            :style="{marginLeft : '4%'}"
-            :items="teams"
-            label="Select a team "
-            solo
-            v-model="selected_team"
-          ></v-select>
-        </v-col>
-         <v-col class="d-flex" cols="6" sm="6">
-              <v-btn
-                  color="primary"
-                  :style="{marginLeft : '50%'}"
-                  dark
-                  class="mb-2"
-                  v-bind="attrs"
-                  v-on="on"
-                  @click="participate"
-                >Participate</v-btn>
-          </v-col>
-      </v-row>
-  </v-row>
-
-  </v-container>
+  </v-app>
+</div>
 </template>
 
 <script>
@@ -189,12 +134,6 @@ export default {
         console.log("select a team")
       }
      
-    },
-    details(){
-      this.$router.push({
-        name: "details",
-        params: { name: this.league }
-      });
     }
   }
 };

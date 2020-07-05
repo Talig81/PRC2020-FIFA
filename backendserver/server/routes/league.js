@@ -23,6 +23,8 @@ router.post('/create',/*passport.authenticate('jwt', { session: false }),*/funct
       games : [],
       startDate : datetime.toDateString(),
       endDate : '',
+      half: 0,
+      week : 0,
       state: 1, // 1 aberto e 0 fechado
     })
     
@@ -59,6 +61,42 @@ router.post('/participate/:league/:teamId',/*passport.authenticate('jwt', { sess
       })
       })
 
+router.post('/game/:league/:gameId',/*passport.authenticate('jwt', { session: false }),*/function (req, res){
+        console.log(req.params.league)
+        console.log(req.params.gameId)    
+        LeagueController.addGame(req.params.league,req.params.teamId)
+                          .then((dados) => {
+                              console.log("Jogo adcionado")
+                              res.status(201).jsonp(dados)
+                          })
+                          .catch(err => {
+                              console.log(err)
+                              res.status(500).jsonp(err)
+                          })
+                  .catch(err =>{
+                      console.log(err)
+                      res.status(500).jsonp(err)
+          })
+          })
+
+router.get('/week/:league',/*passport.authenticate('jwt', { session: false }),*/function (req, res){
+            console.log(req.params.league)
+            let games_id
+            let games
+            LeagueController.getLeague(req.params.league)
+                              .then((dados) => {
+                                  console.log("Get da liga")
+                                  console.log(dados[0])
+                                  res.status(201).jsonp(dados)
+                              })
+                              .catch(err => {
+                                  console.log(err)
+                                  res.status(500).jsonp(err)
+                              })
+
+
+            
+})
 router.get('/list/:name', function(req, res, next) {
   
       LeagueController.getLeague(req.params.name)

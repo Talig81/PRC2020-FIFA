@@ -88,11 +88,12 @@ import axios from "axios";
     });
   },
   computed: {
-      formTitle () {
-        return this.editedIndex === -1 ? 'New Player' : 'Edit Player'
-      },
-      ...mapGetters(["getToken"])
+    ...mapGetters(["getToken"]),
+    formTitle() {
+      return this.editedIndex === -1 ? "New Player" : "Edit Player";
+       
     },
+  
     methods: {
      create () {
         this.$router.push({ name: "criar_equipas"});
@@ -131,4 +132,5 @@ import axios from "axios";
      components: {
   }
 }
+  }
 </script>

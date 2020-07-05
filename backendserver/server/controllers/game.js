@@ -114,3 +114,10 @@ module.exports.playGame = (team1, team2, leaguename) => {
     })
     
 }
+module.exports.getGame = (id) =>{
+    return Game.find({_id: id}).exec();
+}
+
+module.exports.getGameOfLeague = (league) =>{
+    return Game.find({_leagueName: league}).exec();
+}
