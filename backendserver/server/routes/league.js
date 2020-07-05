@@ -63,7 +63,7 @@ router.post('/participate/:league/:teamId',/*passport.authenticate('jwt', { sess
 
 router.post('/game/:league/:gameId',/*passport.authenticate('jwt', { session: false }),*/function (req, res){
         console.log(req.params.league)
-        console.log(req.params.gameId)    
+        console.log(req.params.gameId)
         LeagueController.addGame(req.params.league,req.params.teamId)
                           .then((dados) => {
                               console.log("Jogo adcionado")
