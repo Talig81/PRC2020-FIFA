@@ -24,15 +24,29 @@ module.exports.addGame = (name, gameId) => {
 }
 
 module.exports.addWeek = (name) => {
-    return League
-        .updateOne({ name: name }, { $inc: { week: +1 } })
+    return League.findOne({ name: name }).then(dados => {
+        halfLen = dados.teams.length
+        if (dados.week === halfLen - 2) {
+            if (dados.half === 1) {
+                return League.updateOne({ name: name }, { state: 0, week: 0, half: 0 })
+            }
+            else {
+                return League.updateOne({ name: name }, { week: 0, half: 1 })
+            }
+        }
+        else {
+            return League
+                .updateOne({ name: name }, { $inc: { week: +1 } })
+        }
+    })
+
 }
 
 
 module.exports.getAllGames = async (name) => {
     arra = []
     dd = 0
-    return League.find({ name: name}).then(async dados => {
+    return League.find({ name: name }).then(async dados => {
         dd = dados[0].games.length
         for (i = 0; i < dados[0].games.length; i++) {
             dados1 = await GameController.getGame(dados[0].games[i])
