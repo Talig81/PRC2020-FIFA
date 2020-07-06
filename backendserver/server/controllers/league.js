@@ -32,10 +32,9 @@ module.exports.addWeek = (name) => {
 module.exports.getAllGames = async (name) => {
     arra = []
     dd = 0
-    return League.find({ name: name }).then(async dados => {
+    return League.find({ name: name}).then(async dados => {
         dd = dados[0].games.length
         for (i = 0; i < dados[0].games.length; i++) {
-            console.log(i)
             dados1 = await GameController.getGame(dados[0].games[i])
             arra.push(dados1[0])
         }
