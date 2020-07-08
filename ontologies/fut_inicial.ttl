@@ -1,0 +1,917 @@
+@prefix : <http://www.semanticweb.org/macz/ontologies/2020/3/fut#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/macz/ontologies/2020/3/fut> .
+
+<http://www.semanticweb.org/macz/ontologies/2020/3/fut> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#hasAttackWork
+<http://www.di.uminho.pt/prc2020/2020/1/fut#hasAttackWork> rdf:type owl:ObjectProperty ;
+                                                           owl:inverseOf <http://www.di.uminho.pt/prc2020/2020/1/fut#isAttackRateOf> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#hasClub
+<http://www.di.uminho.pt/prc2020/2020/1/fut#hasClub> rdf:type owl:ObjectProperty ;
+                                                     owl:inverseOf <http://www.di.uminho.pt/prc2020/2020/1/fut#isClubOf> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#hasDefending
+<http://www.di.uminho.pt/prc2020/2020/1/fut#hasDefending> rdf:type owl:ObjectProperty ;
+                                                          owl:inverseOf <http://www.di.uminho.pt/prc2020/2020/1/fut#isDefendingOf> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#hasDefenseWork
+<http://www.di.uminho.pt/prc2020/2020/1/fut#hasDefenseWork> rdf:type owl:ObjectProperty ;
+                                                            owl:inverseOf <http://www.di.uminho.pt/prc2020/2020/1/fut#isDefenseRateOf> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#hasDribbling
+<http://www.di.uminho.pt/prc2020/2020/1/fut#hasDribbling> rdf:type owl:ObjectProperty ;
+                                                          owl:inverseOf <http://www.di.uminho.pt/prc2020/2020/1/fut#isDribbleOf> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#hasFoot
+<http://www.di.uminho.pt/prc2020/2020/1/fut#hasFoot> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#hasGK
+<http://www.di.uminho.pt/prc2020/2020/1/fut#hasGK> rdf:type owl:ObjectProperty ;
+                                                   owl:inverseOf <http://www.di.uminho.pt/prc2020/2020/1/fut#isGkOf> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#hasLeague
+<http://www.di.uminho.pt/prc2020/2020/1/fut#hasLeague> rdf:type owl:ObjectProperty ;
+                                                       owl:inverseOf <http://www.di.uminho.pt/prc2020/2020/1/fut#isLeagueOf> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#hasNationality
+<http://www.di.uminho.pt/prc2020/2020/1/fut#hasNationality> rdf:type owl:ObjectProperty ;
+                                                            owl:inverseOf <http://www.di.uminho.pt/prc2020/2020/1/fut#isNationalityOf> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#hasOrigin
+<http://www.di.uminho.pt/prc2020/2020/1/fut#hasOrigin> rdf:type owl:ObjectProperty ;
+                                                       owl:inverseOf <http://www.di.uminho.pt/prc2020/2020/1/fut#isOriginOf> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#hasPace
+<http://www.di.uminho.pt/prc2020/2020/1/fut#hasPace> rdf:type owl:ObjectProperty ;
+                                                     owl:inverseOf <http://www.di.uminho.pt/prc2020/2020/1/fut#isPaceOf> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#hasPassing
+<http://www.di.uminho.pt/prc2020/2020/1/fut#hasPassing> rdf:type owl:ObjectProperty ;
+                                                        owl:inverseOf <http://www.di.uminho.pt/prc2020/2020/1/fut#isPassingOf> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#hasPhysical
+<http://www.di.uminho.pt/prc2020/2020/1/fut#hasPhysical> rdf:type owl:ObjectProperty ;
+                                                         owl:inverseOf <http://www.di.uminho.pt/prc2020/2020/1/fut#isPhysicakOf> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#hasPosition
+<http://www.di.uminho.pt/prc2020/2020/1/fut#hasPosition> rdf:type owl:ObjectProperty ;
+                                                         owl:inverseOf <http://www.di.uminho.pt/prc2020/2020/1/fut#isPositionOf> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#hasPrice
+<http://www.di.uminho.pt/prc2020/2020/1/fut#hasPrice> rdf:type owl:ObjectProperty ;
+                                                      owl:inverseOf <http://www.di.uminho.pt/prc2020/2020/1/fut#isPriceOf> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#hasQuality
+<http://www.di.uminho.pt/prc2020/2020/1/fut#hasQuality> rdf:type owl:ObjectProperty ;
+                                                        owl:inverseOf <http://www.di.uminho.pt/prc2020/2020/1/fut#isQualityOf> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#hasShooting
+<http://www.di.uminho.pt/prc2020/2020/1/fut#hasShooting> rdf:type owl:ObjectProperty ;
+                                                         owl:inverseOf <http://www.di.uminho.pt/prc2020/2020/1/fut#isShootingOf> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#hasSkillMove
+<http://www.di.uminho.pt/prc2020/2020/1/fut#hasSkillMove> rdf:type owl:ObjectProperty ;
+                                                          owl:inverseOf <http://www.di.uminho.pt/prc2020/2020/1/fut#isSkillMoveOf> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#hasWeakFoot
+<http://www.di.uminho.pt/prc2020/2020/1/fut#hasWeakFoot> rdf:type owl:ObjectProperty ;
+                                                         owl:inverseOf <http://www.di.uminho.pt/prc2020/2020/1/fut#isWeakFootOf> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#isAttackRateOf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#isAttackRateOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#isClubOf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#isClubOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#isDefendingOf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#isDefendingOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#isDefenseRateOf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#isDefenseRateOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#isDribbleOf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#isDribbleOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#isGkOf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#isGkOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#isLeagueOf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#isLeagueOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#isNationalityOf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#isNationalityOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#isOriginOf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#isOriginOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#isPaceOf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#isPaceOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#isPassingOf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#isPassingOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#isPhysicakOf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#isPhysicakOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#isPositionOf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#isPositionOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#isPriceOf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#isPriceOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#isQualityOf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#isQualityOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#isShootingOf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#isShootingOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#isSkillMoveOf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#isSkillMoveOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#isWeakFootOf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#isWeakFootOf> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#age
+<http://www.di.uminho.pt/prc2020/2020/1/fut#age> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#birth_date
+<http://www.di.uminho.pt/prc2020/2020/1/fut#birth_date> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#cam
+<http://www.di.uminho.pt/prc2020/2020/1/fut#cam> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#cb
+<http://www.di.uminho.pt/prc2020/2020/1/fut#cb> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#cdm
+<http://www.di.uminho.pt/prc2020/2020/1/fut#cdm> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#cf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#cf> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#cm
+<http://www.di.uminho.pt/prc2020/2020/1/fut#cm> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#def_heading
+<http://www.di.uminho.pt/prc2020/2020/1/fut#def_heading> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#def_interceptions
+<http://www.di.uminho.pt/prc2020/2020/1/fut#def_interceptions> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#def_marking
+<http://www.di.uminho.pt/prc2020/2020/1/fut#def_marking> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#def_slid_tackle
+<http://www.di.uminho.pt/prc2020/2020/1/fut#def_slid_tackle> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#def_stand_tackle
+<http://www.di.uminho.pt/prc2020/2020/1/fut#def_stand_tackle> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#drib_balance
+<http://www.di.uminho.pt/prc2020/2020/1/fut#drib_balance> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#drib_ball_control
+<http://www.di.uminho.pt/prc2020/2020/1/fut#drib_ball_control> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#drib_composure
+<http://www.di.uminho.pt/prc2020/2020/1/fut#drib_composure> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#drib_dribbling
+<http://www.di.uminho.pt/prc2020/2020/1/fut#drib_dribbling> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#drib_reactions
+<http://www.di.uminho.pt/prc2020/2020/1/fut#drib_reactions> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#features
+<http://www.di.uminho.pt/prc2020/2020/1/fut#features> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#gk
+<http://www.di.uminho.pt/prc2020/2020/1/fut#gk> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#gk_diving
+<http://www.di.uminho.pt/prc2020/2020/1/fut#gk_diving> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#gk_handling
+<http://www.di.uminho.pt/prc2020/2020/1/fut#gk_handling> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#gk_kicking
+<http://www.di.uminho.pt/prc2020/2020/1/fut#gk_kicking> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#gk_positoning
+<http://www.di.uminho.pt/prc2020/2020/1/fut#gk_positoning> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#gk_reflexes
+<http://www.di.uminho.pt/prc2020/2020/1/fut#gk_reflexes> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#gk_speed
+<http://www.di.uminho.pt/prc2020/2020/1/fut#gk_speed> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#height
+<http://www.di.uminho.pt/prc2020/2020/1/fut#height> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#lb
+<http://www.di.uminho.pt/prc2020/2020/1/fut#lb> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#lf
+<http://www.di.uminho.pt/prc2020/2020/1/fut#lf> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#lm
+<http://www.di.uminho.pt/prc2020/2020/1/fut#lm> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#lw
+<http://www.di.uminho.pt/prc2020/2020/1/fut#lw> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#lwb
+<http://www.di.uminho.pt/prc2020/2020/1/fut#lwb> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#name
+<http://www.di.uminho.pt/prc2020/2020/1/fut#name> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#overall
+<http://www.di.uminho.pt/prc2020/2020/1/fut#overall> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#pace_acceleration
+<http://www.di.uminho.pt/prc2020/2020/1/fut#pace_acceleration> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#pace_sprint_speed
+<http://www.di.uminho.pt/prc2020/2020/1/fut#pace_sprint_speed> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#pass_crossing
+<http://www.di.uminho.pt/prc2020/2020/1/fut#pass_crossing> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#pass_curve
+<http://www.di.uminho.pt/prc2020/2020/1/fut#pass_curve> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#pass_free_kick
+<http://www.di.uminho.pt/prc2020/2020/1/fut#pass_free_kick> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#pass_long
+<http://www.di.uminho.pt/prc2020/2020/1/fut#pass_long> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#pass_short
+<http://www.di.uminho.pt/prc2020/2020/1/fut#pass_short> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#pass_vision
+<http://www.di.uminho.pt/prc2020/2020/1/fut#pass_vision> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#pc_price_last
+<http://www.di.uminho.pt/prc2020/2020/1/fut#pc_price_last> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#pc_price_max
+<http://www.di.uminho.pt/prc2020/2020/1/fut#pc_price_max> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#pc_price_min
+<http://www.di.uminho.pt/prc2020/2020/1/fut#pc_price_min> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#phys_aggression
+<http://www.di.uminho.pt/prc2020/2020/1/fut#phys_aggression> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#phys_jumping
+<http://www.di.uminho.pt/prc2020/2020/1/fut#phys_jumping> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#phys_stamina
+<http://www.di.uminho.pt/prc2020/2020/1/fut#phys_stamina> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#phys_strength
+<http://www.di.uminho.pt/prc2020/2020/1/fut#phys_strength> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#ps_price_last
+<http://www.di.uminho.pt/prc2020/2020/1/fut#ps_price_last> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#ps_price_max
+<http://www.di.uminho.pt/prc2020/2020/1/fut#ps_price_max> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#ps_price_min
+<http://www.di.uminho.pt/prc2020/2020/1/fut#ps_price_min> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#shoot_finishing
+<http://www.di.uminho.pt/prc2020/2020/1/fut#shoot_finishing> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#shoot_long_shots
+<http://www.di.uminho.pt/prc2020/2020/1/fut#shoot_long_shots> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#shoot_penalties
+<http://www.di.uminho.pt/prc2020/2020/1/fut#shoot_penalties> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#shoot_positioning
+<http://www.di.uminho.pt/prc2020/2020/1/fut#shoot_positioning> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#shoot_shot_power
+<http://www.di.uminho.pt/prc2020/2020/1/fut#shoot_shot_power> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#shoot_volleys
+<http://www.di.uminho.pt/prc2020/2020/1/fut#shoot_volleys> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#value
+<http://www.di.uminho.pt/prc2020/2020/1/fut#value> rdf:type owl:DatatypeProperty .
+
+### http://www.di.uminho.pt/prc2020/2020/1/fut#drib_agility
+<http://www.di.uminho.pt/prc2020/2020/1/fut#drib_agility> rdf:type owl:DatatypeProperty .
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#weight
+<http://www.di.uminho.pt/prc2020/2020/1/fut#weight> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#xbox_price_last
+<http://www.di.uminho.pt/prc2020/2020/1/fut#xbox_price_last> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#xbox_price_max
+<http://www.di.uminho.pt/prc2020/2020/1/fut#xbox_price_max> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#xbox_price_min
+<http://www.di.uminho.pt/prc2020/2020/1/fut#xbox_price_min> rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> rdf:type owl:Class .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Club
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Club> rdf:type owl:Class .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Defending
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Defending> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Drible
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Drible> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Foot
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Foot> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Gk
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Gk> rdf:type owl:Class ;
+                                                rdfs:subClassOf <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#League
+<http://www.di.uminho.pt/prc2020/2020/1/fut#League> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Nationality
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Nationality> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Origin
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Origin> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Pace
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Pace> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Pass
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Pass> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Passing
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Passing> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Physical
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Physical> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Player
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Player> rdf:type owl:Class .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Position
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Position> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Price
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Price> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Quality
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Quality> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Shooting
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Shooting> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#SkillMoves
+<http://www.di.uminho.pt/prc2020/2020/1/fut#SkillMoves> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Type
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Type> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#WeakFoot
+<http://www.di.uminho.pt/prc2020/2020/1/fut#WeakFoot> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#WorkRate
+<http://www.di.uminho.pt/prc2020/2020/1/fut#WorkRate> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Base
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Base> rdf:type owl:NamedIndividual ,
+                                                           <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                           <http://www.di.uminho.pt/prc2020/2020/1/fut#Origin> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#CAM
+<http://www.di.uminho.pt/prc2020/2020/1/fut#CAM> rdf:type owl:NamedIndividual ,
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#Position> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#CB
+<http://www.di.uminho.pt/prc2020/2020/1/fut#CB> rdf:type owl:NamedIndividual ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Position> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#CDM
+<http://www.di.uminho.pt/prc2020/2020/1/fut#CDM> rdf:type owl:NamedIndividual ,
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#Position> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#CF
+<http://www.di.uminho.pt/prc2020/2020/1/fut#CF> rdf:type owl:NamedIndividual ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Position> ;
+                                                <http://www.di.uminho.pt/prc2020/2020/1/fut#isPositionOf> <http://www.di.uminho.pt/prc2020/2020/1/fut#Onze> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#CM
+<http://www.di.uminho.pt/prc2020/2020/1/fut#CM> rdf:type owl:NamedIndividual ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Position> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#DefendOnze
+<http://www.di.uminho.pt/prc2020/2020/1/fut#DefendOnze> rdf:type owl:NamedIndividual ,
+                                                                 <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                                 <http://www.di.uminho.pt/prc2020/2020/1/fut#Defending> ;
+                                                        <http://www.di.uminho.pt/prc2020/2020/1/fut#isDefendingOf> <http://www.di.uminho.pt/prc2020/2020/1/fut#Onze> ;
+                                                        <http://www.di.uminho.pt/prc2020/2020/1/fut#def_heading> 11 ;
+                                                        <http://www.di.uminho.pt/prc2020/2020/1/fut#def_interceptions> 11 ;
+                                                        <http://www.di.uminho.pt/prc2020/2020/1/fut#def_marking> 11 ;
+                                                        <http://www.di.uminho.pt/prc2020/2020/1/fut#def_slid_tackle> 11 ;
+                                                        <http://www.di.uminho.pt/prc2020/2020/1/fut#def_stand_tackle> 11 ;
+                                                        <http://www.di.uminho.pt/prc2020/2020/1/fut#overall> 50 .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#DribleOnze
+<http://www.di.uminho.pt/prc2020/2020/1/fut#DribleOnze> rdf:type owl:NamedIndividual ,
+                                                                 <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                                 <http://www.di.uminho.pt/prc2020/2020/1/fut#Drible> ;
+                                                        <http://www.di.uminho.pt/prc2020/2020/1/fut#isDribbleOf> <http://www.di.uminho.pt/prc2020/2020/1/fut#Onze> ;
+                                                        <http://www.di.uminho.pt/prc2020/2020/1/fut#drib_balance> 92 ;
+                                                        <http://www.di.uminho.pt/prc2020/2020/1/fut#drib_ball_control> 92 ;
+                                                        <http://www.di.uminho.pt/prc2020/2020/1/fut#drib_composure> 92 ;
+                                                        <http://www.di.uminho.pt/prc2020/2020/1/fut#drib_dribbling> 92 ;
+                                                        <http://www.di.uminho.pt/prc2020/2020/1/fut#drib_reactions> 92 ;
+                                                        <http://www.di.uminho.pt/prc2020/2020/1/fut#drib_agility> 92 ;
+                                                        <http://www.di.uminho.pt/prc2020/2020/1/fut#overall> 94 .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#FC_Barcelona
+<http://www.di.uminho.pt/prc2020/2020/1/fut#FC_Barcelona> rdf:type owl:NamedIndividual ,
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#Club> ;
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#hasLeague> <http://www.di.uminho.pt/prc2020/2020/1/fut#LaLiga_Santander> ;
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#isClubOf> <http://www.di.uminho.pt/prc2020/2020/1/fut#Onze> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#GK
+<http://www.di.uminho.pt/prc2020/2020/1/fut#GK> rdf:type owl:NamedIndividual ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Position> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#GKOnze
+<http://www.di.uminho.pt/prc2020/2020/1/fut#GKOnze> rdf:type owl:NamedIndividual ,
+                                                             <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                             <http://www.di.uminho.pt/prc2020/2020/1/fut#Gk> ;
+                                                    <http://www.di.uminho.pt/prc2020/2020/1/fut#isGkOf> <http://www.di.uminho.pt/prc2020/2020/1/fut#Onze> ;
+                                                    <http://www.di.uminho.pt/prc2020/2020/1/fut#gk_diving> 20 ;
+                                                    <http://www.di.uminho.pt/prc2020/2020/1/fut#gk_handling> 20 ;
+                                                    <http://www.di.uminho.pt/prc2020/2020/1/fut#gk_kicking> 20 ;
+                                                    <http://www.di.uminho.pt/prc2020/2020/1/fut#gk_positoning> 20 ;
+                                                    <http://www.di.uminho.pt/prc2020/2020/1/fut#gk_reflexes> 20 ;
+                                                    <http://www.di.uminho.pt/prc2020/2020/1/fut#gk_speed> 20 .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Gold-Non-Rare
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Gold-Non-Rare> rdf:type owl:NamedIndividual ,
+                                                                    <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                                    <http://www.di.uminho.pt/prc2020/2020/1/fut#Quality> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Gold-Rare
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Gold-Rare> rdf:type owl:NamedIndividual ,
+                                                                <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                                <http://www.di.uminho.pt/prc2020/2020/1/fut#Quality> ;
+                                                       <http://www.di.uminho.pt/prc2020/2020/1/fut#isQualityOf> <http://www.di.uminho.pt/prc2020/2020/1/fut#Onze> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#High
+<http://www.di.uminho.pt/prc2020/2020/1/fut#High> rdf:type owl:NamedIndividual ,
+                                                           <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                           <http://www.di.uminho.pt/prc2020/2020/1/fut#WorkRate> ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#isAttackRateOf> <http://www.di.uminho.pt/prc2020/2020/1/fut#Onze> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Icon
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Icon> rdf:type owl:NamedIndividual ,
+                                                           <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                           <http://www.di.uminho.pt/prc2020/2020/1/fut#Type> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#LB
+<http://www.di.uminho.pt/prc2020/2020/1/fut#LB> rdf:type owl:NamedIndividual ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Position> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#LF
+<http://www.di.uminho.pt/prc2020/2020/1/fut#LF> rdf:type owl:NamedIndividual ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Position> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#LM
+<http://www.di.uminho.pt/prc2020/2020/1/fut#LM> rdf:type owl:NamedIndividual ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Position> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#LW
+<http://www.di.uminho.pt/prc2020/2020/1/fut#LW> rdf:type owl:NamedIndividual ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Position> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#LWB
+<http://www.di.uminho.pt/prc2020/2020/1/fut#LWB> rdf:type owl:NamedIndividual ,
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#Position> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#LaLiga_Santander
+<http://www.di.uminho.pt/prc2020/2020/1/fut#LaLiga_Santander> rdf:type owl:NamedIndividual ,
+                                                                       <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                                       <http://www.di.uminho.pt/prc2020/2020/1/fut#League> ;
+                                                              <http://www.di.uminho.pt/prc2020/2020/1/fut#isLeagueOf> <http://www.di.uminho.pt/prc2020/2020/1/fut#FC_Barcelona> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Left
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Left> rdf:type owl:NamedIndividual ,
+                                                           <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                           <http://www.di.uminho.pt/prc2020/2020/1/fut#Foot> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Low
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Low> rdf:type owl:NamedIndividual ,
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#WorkRate> ;
+                                                 <http://www.di.uminho.pt/prc2020/2020/1/fut#isDefenseRateOf> <http://www.di.uminho.pt/prc2020/2020/1/fut#Onze> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Medium
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Medium> rdf:type owl:NamedIndividual ,
+                                                             <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                             <http://www.di.uminho.pt/prc2020/2020/1/fut#WorkRate> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Normal
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Normal> rdf:type owl:NamedIndividual ,
+                                                             <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                             <http://www.di.uminho.pt/prc2020/2020/1/fut#Type> .
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Onze
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Onze> rdf:type owl:NamedIndividual ,
+                                                           <http://www.di.uminho.pt/prc2020/2020/1/fut#Player> ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#hasAttackWork> <http://www.di.uminho.pt/prc2020/2020/1/fut#High> ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#hasClub> <http://www.di.uminho.pt/prc2020/2020/1/fut#FC_Barcelona> ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#hasDefending> <http://www.di.uminho.pt/prc2020/2020/1/fut#DefendOnze> ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#hasDefenseWork> <http://www.di.uminho.pt/prc2020/2020/1/fut#Low> ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#hasDribbling> <http://www.di.uminho.pt/prc2020/2020/1/fut#DribleOnze> ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#hasFoot> <http://www.di.uminho.pt/prc2020/2020/1/fut#Rigth> ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#hasGK> <http://www.di.uminho.pt/prc2020/2020/1/fut#GKOnze> ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#hasNationality> <http://www.di.uminho.pt/prc2020/2020/1/fut#Portuguese> ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#hasPace> <http://www.di.uminho.pt/prc2020/2020/1/fut#PaceOnze> ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#hasPassing> <http://www.di.uminho.pt/prc2020/2020/1/fut#PassOnze> ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#hasPhysical> <http://www.di.uminho.pt/prc2020/2020/1/fut#PhysicalOnze> ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#hasPosition> <http://www.di.uminho.pt/prc2020/2020/1/fut#CF> ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#hasPrice> <http://www.di.uminho.pt/prc2020/2020/1/fut#PriceOnze> ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#hasQuality> <http://www.di.uminho.pt/prc2020/2020/1/fut#Gold-Rare> ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#hasShooting> <http://www.di.uminho.pt/prc2020/2020/1/fut#ShootingOnze> ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#hasSkillMove> <http://www.di.uminho.pt/prc2020/2020/1/fut#SkillsOnze> ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#hasWeakFoot> <http://www.di.uminho.pt/prc2020/2020/1/fut#WeakOnze> ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#age> 22 ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#birth_date> "1996-07-26" ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#cam> 80 ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#cb> 20 ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#cdm> 30 ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#cf> 94 ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#cm> 75 ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#features> "Grande jogar, saca altas ratas e marca golos do meio campo" ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#gk> 18 ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#height> 186 ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#lb> 20 ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#lf> 79 ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#lm> 80 ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#lw> 80 ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#lwb> 30 ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#name> "Tiago João Fernandes Baptista" ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#overall> 92 ;
+                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#weight> 80 .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#PaceOnze
+<http://www.di.uminho.pt/prc2020/2020/1/fut#PaceOnze> rdf:type owl:NamedIndividual ,
+                                                               <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                               <http://www.di.uminho.pt/prc2020/2020/1/fut#Pace> ;
+                                                      <http://www.di.uminho.pt/prc2020/2020/1/fut#isPaceOf> <http://www.di.uminho.pt/prc2020/2020/1/fut#Onze> ;
+                                                      <http://www.di.uminho.pt/prc2020/2020/1/fut#overall> 99 ;
+                                                      <http://www.di.uminho.pt/prc2020/2020/1/fut#pace_acceleration> 99 ;
+                                                      <http://www.di.uminho.pt/prc2020/2020/1/fut#pace_sprint_speed> 99 .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#PassOnze
+<http://www.di.uminho.pt/prc2020/2020/1/fut#PassOnze> rdf:type owl:NamedIndividual ,
+                                                               <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                               <http://www.di.uminho.pt/prc2020/2020/1/fut#Pass> ,
+                                                               <http://www.di.uminho.pt/prc2020/2020/1/fut#Passing> ;
+                                                      <http://www.di.uminho.pt/prc2020/2020/1/fut#isPassingOf> <http://www.di.uminho.pt/prc2020/2020/1/fut#Onze> ;
+                                                      <http://www.di.uminho.pt/prc2020/2020/1/fut#overall> 93 ;
+                                                      <http://www.di.uminho.pt/prc2020/2020/1/fut#pass_crossing> 92 ;
+                                                      <http://www.di.uminho.pt/prc2020/2020/1/fut#pass_curve> 92 ;
+                                                      <http://www.di.uminho.pt/prc2020/2020/1/fut#pass_free_kick> 94 ;
+                                                      <http://www.di.uminho.pt/prc2020/2020/1/fut#pass_long> 92 ;
+                                                      <http://www.di.uminho.pt/prc2020/2020/1/fut#pass_short> 92 ;
+                                                      <http://www.di.uminho.pt/prc2020/2020/1/fut#pass_vision> 92 .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#PhysicalOnze
+<http://www.di.uminho.pt/prc2020/2020/1/fut#PhysicalOnze> rdf:type owl:NamedIndividual ,
+                                                                   <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                                   <http://www.di.uminho.pt/prc2020/2020/1/fut#Physical> ;
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#isPhysicakOf> <http://www.di.uminho.pt/prc2020/2020/1/fut#Onze> ;
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#overall> 94 ;
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#phys_aggression> 94 ;
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#phys_jumping> 94 ;
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#phys_stamina> 94 ;
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#phys_strength> 94 .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Portuguese
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Portuguese> rdf:type owl:NamedIndividual ,
+                                                                 <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                                 <http://www.di.uminho.pt/prc2020/2020/1/fut#Nationality> ;
+                                                        <http://www.di.uminho.pt/prc2020/2020/1/fut#isNationalityOf> <http://www.di.uminho.pt/prc2020/2020/1/fut#Onze> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#PriceOnze
+<http://www.di.uminho.pt/prc2020/2020/1/fut#PriceOnze> rdf:type owl:NamedIndividual ,
+                                                                <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                                <http://www.di.uminho.pt/prc2020/2020/1/fut#Price> ;
+                                                       <http://www.di.uminho.pt/prc2020/2020/1/fut#isPriceOf> <http://www.di.uminho.pt/prc2020/2020/1/fut#Onze> ;
+                                                       <http://www.di.uminho.pt/prc2020/2020/1/fut#pc_price_last> 14000000 ;
+                                                       <http://www.di.uminho.pt/prc2020/2020/1/fut#pc_price_max> 15000000 ;
+                                                       <http://www.di.uminho.pt/prc2020/2020/1/fut#pc_price_min> 15000000 ;
+                                                       <http://www.di.uminho.pt/prc2020/2020/1/fut#ps_price_last> 15000000 ;
+                                                       <http://www.di.uminho.pt/prc2020/2020/1/fut#ps_price_max> 15000000 ;
+                                                       <http://www.di.uminho.pt/prc2020/2020/1/fut#ps_price_min> 15000000 ;
+                                                       <http://www.di.uminho.pt/prc2020/2020/1/fut#xbox_price_last> 15000000 ;
+                                                       <http://www.di.uminho.pt/prc2020/2020/1/fut#xbox_price_max> 15000000 ;
+                                                       <http://www.di.uminho.pt/prc2020/2020/1/fut#xbox_price_min> 15000000 .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Prime
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Prime> rdf:type owl:NamedIndividual ,
+                                                            <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                            <http://www.di.uminho.pt/prc2020/2020/1/fut#Origin> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#RB
+<http://www.di.uminho.pt/prc2020/2020/1/fut#RB> rdf:type owl:NamedIndividual ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Position> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#RF
+<http://www.di.uminho.pt/prc2020/2020/1/fut#RF> rdf:type owl:NamedIndividual ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Position> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#RM
+<http://www.di.uminho.pt/prc2020/2020/1/fut#RM> rdf:type owl:NamedIndividual ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Position> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#RW
+<http://www.di.uminho.pt/prc2020/2020/1/fut#RW> rdf:type owl:NamedIndividual ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Position> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#RWB
+<http://www.di.uminho.pt/prc2020/2020/1/fut#RWB> rdf:type owl:NamedIndividual ,
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#Position> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Rigth
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Rigth> rdf:type owl:NamedIndividual ,
+                                                            <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                            <http://www.di.uminho.pt/prc2020/2020/1/fut#Foot> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#ST
+<http://www.di.uminho.pt/prc2020/2020/1/fut#ST> rdf:type owl:NamedIndividual ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                         <http://www.di.uminho.pt/prc2020/2020/1/fut#Position> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#ShootingOnze
+<http://www.di.uminho.pt/prc2020/2020/1/fut#ShootingOnze> rdf:type owl:NamedIndividual ,
+                                                                   <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                                   <http://www.di.uminho.pt/prc2020/2020/1/fut#Shooting> ;
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#isShootingOf> <http://www.di.uminho.pt/prc2020/2020/1/fut#Onze> ;
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#overall> 95 ;
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#shoot_finishing> 92 ;
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#shoot_long_shots> 92 ;
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#shoot_penalties> 92 ;
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#shoot_positioning> 92 ;
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#shoot_shot_power> 99 ;
+                                                          <http://www.di.uminho.pt/prc2020/2020/1/fut#shoot_volleys> 95 .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Silver-Non-Rare
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Silver-Non-Rare> rdf:type owl:NamedIndividual ,
+                                                                      <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                                      <http://www.di.uminho.pt/prc2020/2020/1/fut#Quality> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#Silver-Rare
+<http://www.di.uminho.pt/prc2020/2020/1/fut#Silver-Rare> rdf:type owl:NamedIndividual ,
+                                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                                  <http://www.di.uminho.pt/prc2020/2020/1/fut#Quality> .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#SkillsOnze
+<http://www.di.uminho.pt/prc2020/2020/1/fut#SkillsOnze> rdf:type owl:NamedIndividual ,
+                                                                 <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                                 <http://www.di.uminho.pt/prc2020/2020/1/fut#SkillMoves> ;
+                                                        <http://www.di.uminho.pt/prc2020/2020/1/fut#isSkillMoveOf> <http://www.di.uminho.pt/prc2020/2020/1/fut#Onze> ;
+                                                        <http://www.di.uminho.pt/prc2020/2020/1/fut#overall> 5 .
+
+
+###  http://www.di.uminho.pt/prc2020/2020/1/fut#WeakOnze
+<http://www.di.uminho.pt/prc2020/2020/1/fut#WeakOnze> rdf:type owl:NamedIndividual ,
+                                                               <http://www.di.uminho.pt/prc2020/2020/1/fut#Characteristic> ,
+                                                               <http://www.di.uminho.pt/prc2020/2020/1/fut#WeakFoot> ;
+                                                      <http://www.di.uminho.pt/prc2020/2020/1/fut#isWeakFootOf> <http://www.di.uminho.pt/prc2020/2020/1/fut#Onze> ;
+                                                      <http://www.di.uminho.pt/prc2020/2020/1/fut#value> 5 .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
