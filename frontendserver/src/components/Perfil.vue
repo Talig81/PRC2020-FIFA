@@ -38,13 +38,6 @@
                 prepend-icon="mdi-account"
               />
               <v-text-field
-                v-model="password"
-                id="password"
-                label="Password"
-                name="password"
-                prepend-icon="mdi-lock"
-              />
-              <v-text-field
                 v-model="email"
                 id="email"
                 label="Email"

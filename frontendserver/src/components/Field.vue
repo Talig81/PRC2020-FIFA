@@ -26,10 +26,14 @@
 
 <script>
 import VueDraggableResizable from "vue-draggable-resizable";
+import { mapGetters } from "vuex";
+import axios from "axios";
 
 export default {
   data() {
     return {
+      id: "",
+      items: [],
       inputItems: [
         {
          number: "10",
@@ -52,7 +56,26 @@ export default {
   components: {
     VueDraggableResizable
   },
-  methods: {}
+  
+  methods: {},
+  mounted: function() {
+    const url = "http://45.76.32.59:5011/users/teste";
+    
+    let config1 = {
+      headers: {
+        Authorization: "Bearer " + this.getToken
+      }
+    };
+    axios.get(url, config1).then(res => {
+      this.id = res.data.user.id;
+      const url1 = "http://localhost:5011/teams/teste/personalTeam/" + this.id;
+      axios.get(url1,config1).then(res1 =>{
+        this.items = res1
+      })
+    })},
+  computed: {
+    ...mapGetters(["getToken"])
+  },
 };
 </script>
 

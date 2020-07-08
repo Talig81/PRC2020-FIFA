@@ -23,35 +23,35 @@ module.exports.playGame = (team1, team2, leaguename) => {
         flag3 = getRndInteger(0,2)
         flag4 = getRndInteger(0,2)
         if(flag1){
-            percent = getRndInteger(1,5)
+            percent = getRndInteger(1,9)
             t1A = t1A + (t1A * percent * 0.01)
         }
         else{
-            percent = getRndInteger(1,5)
+            percent = getRndInteger(1,9)
             t1A = t1A - (t1A * percent * 0.01)
         }
         if(flag2){
-            percent = getRndInteger(1,5)
+            percent = getRndInteger(1,9)
             t1D = t1D + (t1D * percent * 0.01)
         }
         else{
-            percent = getRndInteger(1,5)
+            percent = getRndInteger(1,9)
             t1D = t1D - (t1D * percent * 0.01)
         }
         if(flag3){
-            percent = getRndInteger(1,5)
+            percent = getRndInteger(1,9)
             t2A = t2A + (t2A * percent * 0.01)
         }
         else{
-            percent = getRndInteger(1,5)
+            percent = getRndInteger(1,9)
             t2A = t2A - (t2A * percent * 0.01)
         }
         if(flag4){
-            percent = getRndInteger(1,5)
+            percent = getRndInteger(1,9)
             t2D = t2D + (t2D * percent * 0.01)
         }
         else{
-            percent = getRndInteger(1,5)
+            percent = getRndInteger(1,9)
             t2D = t2D - (t2D * percent * 0.01)
         }
         if(t2D > t1A){
