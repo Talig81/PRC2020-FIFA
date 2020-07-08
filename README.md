@@ -4,7 +4,7 @@
 <h3> Contributors : </h3>
 
 <p>Tiago Baptista - https://github.com/sir-onze</p>
-<p>Manuel Moreno - https://github.com/lrpereira</p>
+<p>Manuel Moreno - https://github.com/Talig81</p>
 
 
 <h3> Context </h3>
