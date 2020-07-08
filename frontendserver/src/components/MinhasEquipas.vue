@@ -60,6 +60,41 @@
 import { mapGetters } from "vuex";
 import axios from "axios";
   export default {
+        data: () => ({
+      id:'',
+      drawer: null,
+      items:[],
+      headers: [
+        {
+          text: "Team Name",
+          align: "start",
+          sortable: true,
+          value: "name"
+        },
+        { text: "Platform", value: "platform" },
+        { text: "Atacking Rating", value: "atck" },
+        { text: "Defensive Rating", value: "defense" },
+        { text: "Price", value: "price" },
+        { text: "Actions", value: "actions", sortable: false }
+      ],
+    }),
+    methods: {
+     create () {
+        this.$router.push({ name: "criar_equipas"});
+    },
+    deletion(){
+      // falta chamar axios para a rota que temos de criar no backend 
+       this.$router.push({
+        name: "teams",
+      });
+    },
+    consult(item) {
+      this.$router.push({
+        name: "consultar_equipa",
+        params: { name: item.name }
+      });
+    }
+  },
     props: {
       source: String,
     },
@@ -74,7 +109,7 @@ import axios from "axios";
     };
     axios.get(url1, config1).then(res => {
         this.id = res.data.user.id;
-         const url = "http://45.76.32.59:5011/teams/personalTeam/"+this.id
+         const url = "http://localhost:5011/teams/personalTeam/"+this.id
     let config = {
       headers: {
         Authorization:
@@ -94,41 +129,7 @@ import axios from "axios";
        
     },
   
-    methods: {
-     create () {
-        this.$router.push({ name: "criar_equipas"});
-    },
-    deletion(){
-      // falta chamar axios para a rota que temos de criar no backend 
-       this.$router.push({
-        name: "teams",
-      });
-    },
-    consult(item) {
-      this.$router.push({
-        name: "consultar_equipa",
-        params: { name: item.name }
-      });
-    }
-  },
-    data: () => ({
-      id:'',
-      drawer: null,
-      items:[],
-      headers: [
-        {
-          text: "Team Name",
-          align: "start",
-          sortable: true,
-          value: "name"
-        },
-        { text: "Platform", value: "platform" },
-        { text: "Atacking Rating", value: "atck" },
-        { text: "Defensive Rating", value: "defense" },
-        { text: "Price", value: "price" },
-        { text: "Actions", value: "actions", sortable: false }
-      ],
-    }),
+  
      components: {
   }
 }
