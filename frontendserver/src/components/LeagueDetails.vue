@@ -121,19 +121,66 @@ export default {
                             flag=1
                             team.points = team.points + 3
                           }
+                          if(team.name == element.team2){
+                            flag=1
+                            team.points = team.points + 0
+                          }
                         })
                         if(flag==0){
                           var team =' '
+                          var team2 = ''
                           team = element.team1
+                          team2 = element.team2
                           console.log(team)
                           this.points.push({name:team,points:3})
+                          this.points.push({name:team2,points:0})
                         }
                     }
+
                     if(element.goals1 == element.goals2){
                         console.log("empate")
+                         this.points.map((team)=>{
+                          if(team.name == element.team1){
+                            flag=1
+                            team.points = team.points + 1
+                          }
+                          if(team.name == element.team2){
+                            flag=1
+                            team.points = team.points + 1
+                          }
+                        })
+                        if(flag==0){
+                          var team1 =' '
+                          var team21 = ''
+                          team = element.team1
+                          team21 = element.team2
+                          console.log(team)
+                          this.points.push({name:team1,points:1})
+                          this.points.push({name:team21,points:1})
+                        }
                     }
                     if(element.goals1 < element.goals2){
-                        console.log("empate")
+                        console.log("ganha a team 2")
+                                                console.log("ganha a team 1")
+                        this.points.map((team)=>{
+                          if(team.name == element.team2){
+                            flag=1
+                            team.points = team.points + 3
+                          }
+                          if(team.name == element.team1){
+                            flag=1
+                            team.points = team.points + 0
+                          }
+                        })
+                        if(flag==0){
+                          var team11 =' '
+                          var team22 = ''
+                          team11 = element.team1
+                          team22 = element.team2
+                          console.log(team)
+                          this.points.push({name:team11,points:0})
+                          this.points.push({name:team22,points:3})
+                        }
                     }
                     
                   })
